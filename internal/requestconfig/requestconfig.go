@@ -18,10 +18,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/stainless-sdks/swarms-go/internal"
-	"github.com/stainless-sdks/swarms-go/internal/apierror"
-	"github.com/stainless-sdks/swarms-go/internal/apiform"
-	"github.com/stainless-sdks/swarms-go/internal/apiquery"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apierror"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apiform"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apiquery"
 )
 
 func getDefaultHeaders() map[string]string {

@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/stainless-sdks/swarms-go/internal/requestconfig"
-	"github.com/stainless-sdks/swarms-go/option"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/requestconfig"
+	"github.com/The-Swarm-Corporation/swarms-client-go/option"
 )
 
 // Client creates a struct with services and top level methods that help with

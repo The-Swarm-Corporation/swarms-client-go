@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stainless-sdks/swarms-go"
-	"github.com/stainless-sdks/swarms-go/internal"
-	"github.com/stainless-sdks/swarms-go/option"
+	"github.com/The-Swarm-Corporation/swarms-client-go"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal"
+	"github.com/The-Swarm-Corporation/swarms-client-go/option"
 )
 
 type closureTransport struct {

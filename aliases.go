@@ -3,8 +3,8 @@
 package swarms
 
 import (
-	"github.com/stainless-sdks/swarms-go/internal/apierror"
-	"github.com/stainless-sdks/swarms-go/packages/param"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apierror"
+	"github.com/The-Swarm-Corporation/swarms-client-go/packages/param"
 )
 
 // aliased to make [param.APIUnion] private when embedding

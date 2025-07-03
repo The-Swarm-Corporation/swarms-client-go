@@ -3,8 +3,8 @@ package respjson_test
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/stainless-sdks/swarms-go/internal/apijson"
-	rj "github.com/stainless-sdks/swarms-go/packages/respjson"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apijson"
+	rj "github.com/The-Swarm-Corporation/swarms-client-go/packages/respjson"
 	"reflect"
 	"testing"
 )

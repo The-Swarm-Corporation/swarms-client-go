@@ -1,7 +1,7 @@
 package swarms
 
 import (
-	"github.com/stainless-sdks/swarms-go/packages/param"
+	"github.com/The-Swarm-Corporation/swarms-client-go/packages/param"
 	"io"
 	"time"
 )

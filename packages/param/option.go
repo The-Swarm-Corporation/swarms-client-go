@@ -3,7 +3,7 @@ package param
 import (
 	"encoding/json"
 	"fmt"
-	shimjson "github.com/stainless-sdks/swarms-go/internal/encoding/json"
+	shimjson "github.com/The-Swarm-Corporation/swarms-client-go/internal/encoding/json"
 	"time"
 )
 

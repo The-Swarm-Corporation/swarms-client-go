@@ -7,10 +7,10 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/stainless-sdks/swarms-go/internal/apijson"
-	"github.com/stainless-sdks/swarms-go/internal/requestconfig"
-	"github.com/stainless-sdks/swarms-go/option"
-	"github.com/stainless-sdks/swarms-go/packages/param"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apijson"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/requestconfig"
+	"github.com/The-Swarm-Corporation/swarms-client-go/option"
+	"github.com/The-Swarm-Corporation/swarms-client-go/packages/param"
 )
 
 // SwarmService contains methods and other services that help with interacting with

@@ -2,7 +2,7 @@ package param
 
 import (
 	"encoding/json"
-	"github.com/stainless-sdks/swarms-go/internal/encoding/json/sentinel"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/encoding/json/sentinel"
 	"reflect"
 )
 

@@ -2,7 +2,7 @@ package apijson
 
 import (
 	"errors"
-	"github.com/stainless-sdks/swarms-go/packages/param"
+	"github.com/The-Swarm-Corporation/swarms-client-go/packages/param"
 	"reflect"
 
 	"github.com/tidwall/gjson"

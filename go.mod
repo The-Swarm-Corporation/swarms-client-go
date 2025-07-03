@@ -1,4 +1,4 @@
-module github.com/stainless-sdks/swarms-go
+module github.com/The-Swarm-Corporation/swarms-client-go
 
 go 1.21
 

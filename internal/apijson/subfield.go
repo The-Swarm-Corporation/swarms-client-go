@@ -1,7 +1,7 @@
 package apijson
 
 import (
-	"github.com/stainless-sdks/swarms-go/packages/respjson"
+	"github.com/The-Swarm-Corporation/swarms-client-go/packages/respjson"
 	"reflect"
 )
 

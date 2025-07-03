@@ -1,8 +1,8 @@
 package sentinel_test
 
 import (
-	"github.com/stainless-sdks/swarms-go/internal/encoding/json/sentinel"
-	"github.com/stainless-sdks/swarms-go/packages/param"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/encoding/json/sentinel"
+	"github.com/The-Swarm-Corporation/swarms-client-go/packages/param"
 	"reflect"
 	"slices"
 	"testing"

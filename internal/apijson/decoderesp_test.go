@@ -2,8 +2,8 @@ package apijson_test
 
 import (
 	"encoding/json"
-	"github.com/stainless-sdks/swarms-go/internal/apijson"
-	"github.com/stainless-sdks/swarms-go/packages/respjson"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apijson"
+	"github.com/The-Swarm-Corporation/swarms-client-go/packages/respjson"
 	"testing"
 )
 

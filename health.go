@@ -6,8 +6,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/stainless-sdks/swarms-go/internal/requestconfig"
-	"github.com/stainless-sdks/swarms-go/option"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/requestconfig"
+	"github.com/The-Swarm-Corporation/swarms-client-go/option"
 )
 
 // HealthService contains methods and other services that help with interacting

@@ -8,9 +8,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/stainless-sdks/swarms-go"
-	"github.com/stainless-sdks/swarms-go/internal/testutil"
-	"github.com/stainless-sdks/swarms-go/option"
+	"github.com/The-Swarm-Corporation/swarms-client-go"
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/testutil"
+	"github.com/The-Swarm-Corporation/swarms-client-go/option"
 )
 
 func TestSwarmGetRoot(t *testing.T) {

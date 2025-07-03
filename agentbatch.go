@@ -5,7 +5,6 @@ package swarms
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/stainless-sdks/swarms-go/internal/requestconfig"
@@ -13,7 +12,7 @@ import (
 )
 
 // AgentBatchService contains methods and other services that help with interacting
-// with the swarms API.
+// with the swarms-client API.
 //
 // Note, unlike clients, this service does not read variables from the environment
 // automatically. You should not instantiate this service directly, and instead use
@@ -39,21 +38,17 @@ func NewAgentBatchService(opts ...option.RequestOption) (r AgentBatchService) {
 // Returns: List[Dict[str, Any]]: List of results from completed agent tasks
 //
 // Raises: HTTPException: If there's an error processing the batch
-func (r *AgentBatchService) Run(ctx context.Context, params AgentBatchRunParams, opts ...option.RequestOption) (res *AgentBatchRunResponse, err error) {
-	if !param.IsOmitted(params.XAPIKey) {
-		opts = append(opts, option.WithHeader("x-api-key", fmt.Sprintf("%s", params.XAPIKey)))
-	}
+func (r *AgentBatchService) Run(ctx context.Context, body AgentBatchRunParams, opts ...option.RequestOption) (res *AgentBatchRunResponse, err error) {
 	opts = append(r.Options[:], opts...)
 	path := "v1/agent/batch/completions"
-	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, params, &res, opts...)
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
 	return
 }
 
 type AgentBatchRunResponse map[string]any
 
 type AgentBatchRunParams struct {
-	Body    []AgentCompletionParam
-	XAPIKey string `header:"x-api-key,required" json:"-"`
+	Body []AgentCompletionParam
 	paramObj
 }
 

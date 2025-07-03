@@ -39,7 +39,7 @@ func TestUserAgentHeader(t *testing.T) {
 		}),
 	)
 	client.GetRoot(context.Background())
-	if userAgent != fmt.Sprintf("Swarms/Go %s", internal.PackageVersion) {
+	if userAgent != fmt.Sprintf("SwarmsClient/Go %s", internal.PackageVersion) {
 		t.Errorf("Expected User-Agent to be correct, but got: %#v", userAgent)
 	}
 }

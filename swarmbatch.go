@@ -5,7 +5,6 @@ package swarms
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/stainless-sdks/swarms-go/internal/requestconfig"
@@ -13,7 +12,7 @@ import (
 )
 
 // SwarmBatchService contains methods and other services that help with interacting
-// with the swarms API.
+// with the swarms-client API.
 //
 // Note, unlike clients, this service does not read variables from the environment
 // automatically. You should not instantiate this service directly, and instead use
@@ -32,21 +31,17 @@ func NewSwarmBatchService(opts ...option.RequestOption) (r SwarmBatchService) {
 }
 
 // Run a batch of swarms with the specified tasks using a thread pool.
-func (r *SwarmBatchService) Run(ctx context.Context, params SwarmBatchRunParams, opts ...option.RequestOption) (res *[]SwarmBatchRunResponse, err error) {
-	if !param.IsOmitted(params.XAPIKey) {
-		opts = append(opts, option.WithHeader("x-api-key", fmt.Sprintf("%s", params.XAPIKey)))
-	}
+func (r *SwarmBatchService) Run(ctx context.Context, body SwarmBatchRunParams, opts ...option.RequestOption) (res *[]SwarmBatchRunResponse, err error) {
 	opts = append(r.Options[:], opts...)
 	path := "v1/swarm/batch/completions"
-	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, params, &res, opts...)
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
 	return
 }
 
 type SwarmBatchRunResponse map[string]any
 
 type SwarmBatchRunParams struct {
-	Body    []SwarmSpecParam
-	XAPIKey string `header:"x-api-key,required" json:"-"`
+	Body []SwarmSpecParam
 	paramObj
 }
 

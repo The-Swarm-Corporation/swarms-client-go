@@ -1,8 +1,8 @@
-# Swarms Go API Library
+# Swarms Client Go API Library
 
 <a href="https://pkg.go.dev/github.com/stainless-sdks/swarms-go"><img src="https://pkg.go.dev/badge/github.com/stainless-sdks/swarms-go.svg" alt="Go Reference"></a>
 
-The Swarms Go library provides convenient access to the Swarms REST API
+The Swarms Client Go library provides convenient access to the [Swarms Client REST API](https://docs.swarms.world/en/latest/)
 from applications written in Go.
 
 It is generated with [Stainless](https://www.stainless.com/).

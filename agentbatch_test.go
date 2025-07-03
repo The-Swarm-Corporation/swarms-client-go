@@ -53,7 +53,6 @@ func TestAgentBatchRun(t *testing.T) {
 			Imgs: []string{"string"},
 			Task: swarms.String("task"),
 		}},
-		XAPIKey: "x-api-key",
 	})
 	if err != nil {
 		var apierr *swarms.Error

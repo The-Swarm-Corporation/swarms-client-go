@@ -5,7 +5,6 @@ package swarms
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/stainless-sdks/swarms-go/internal/apijson"
@@ -15,7 +14,7 @@ import (
 )
 
 // SwarmService contains methods and other services that help with interacting with
-// the swarms API.
+// the swarms-client API.
 //
 // Note, unlike clients, this service does not read variables from the environment
 // automatically. You should not instantiate this service directly, and instead use
@@ -36,10 +35,7 @@ func NewSwarmService(opts ...option.RequestOption) (r SwarmService) {
 }
 
 // Check the available swarm types.
-func (r *SwarmService) CheckAvailable(ctx context.Context, query SwarmCheckAvailableParams, opts ...option.RequestOption) (res *SwarmCheckAvailableResponse, err error) {
-	if !param.IsOmitted(query.XAPIKey) {
-		opts = append(opts, option.WithHeader("x-api-key", fmt.Sprintf("%s", query.XAPIKey)))
-	}
+func (r *SwarmService) CheckAvailable(ctx context.Context, opts ...option.RequestOption) (res *SwarmCheckAvailableResponse, err error) {
 	opts = append(r.Options[:], opts...)
 	path := "v1/swarms/available"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
@@ -48,10 +44,7 @@ func (r *SwarmService) CheckAvailable(ctx context.Context, query SwarmCheckAvail
 
 // Get all API request logs for the user associated with the provided API key,
 // excluding any logs that contain a client_ip field in their data.
-func (r *SwarmService) GetLogs(ctx context.Context, query SwarmGetLogsParams, opts ...option.RequestOption) (res *SwarmGetLogsResponse, err error) {
-	if !param.IsOmitted(query.XAPIKey) {
-		opts = append(opts, option.WithHeader("x-api-key", fmt.Sprintf("%s", query.XAPIKey)))
-	}
+func (r *SwarmService) GetLogs(ctx context.Context, opts ...option.RequestOption) (res *SwarmGetLogsResponse, err error) {
 	opts = append(r.Options[:], opts...)
 	path := "v1/swarm/logs"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
@@ -59,13 +52,10 @@ func (r *SwarmService) GetLogs(ctx context.Context, query SwarmGetLogsParams, op
 }
 
 // Run a swarm with the specified task.
-func (r *SwarmService) Run(ctx context.Context, params SwarmRunParams, opts ...option.RequestOption) (res *SwarmRunResponse, err error) {
-	if !param.IsOmitted(params.XAPIKey) {
-		opts = append(opts, option.WithHeader("x-api-key", fmt.Sprintf("%s", params.XAPIKey)))
-	}
+func (r *SwarmService) Run(ctx context.Context, body SwarmRunParams, opts ...option.RequestOption) (res *SwarmRunResponse, err error) {
 	opts = append(r.Options[:], opts...)
 	path := "v1/swarm/completions"
-	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, params, &res, opts...)
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
 	return
 }
 
@@ -176,19 +166,8 @@ type SwarmGetLogsResponse map[string]any
 
 type SwarmRunResponse map[string]any
 
-type SwarmCheckAvailableParams struct {
-	XAPIKey string `header:"x-api-key,required" json:"-"`
-	paramObj
-}
-
-type SwarmGetLogsParams struct {
-	XAPIKey string `header:"x-api-key,required" json:"-"`
-	paramObj
-}
-
 type SwarmRunParams struct {
 	SwarmSpec SwarmSpecParam
-	XAPIKey   string `header:"x-api-key,required" json:"-"`
 	paramObj
 }
 

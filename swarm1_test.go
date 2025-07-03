@@ -26,9 +26,7 @@ func TestSwarmCheckAvailable(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Swarms.CheckAvailable(context.TODO(), swarms.SwarmCheckAvailableParams{
-		XAPIKey: "x-api-key",
-	})
+	_, err := client.Swarms.CheckAvailable(context.TODO())
 	if err != nil {
 		var apierr *swarms.Error
 		if errors.As(err, &apierr) {
@@ -51,9 +49,7 @@ func TestSwarmGetLogs(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Swarms.GetLogs(context.TODO(), swarms.SwarmGetLogsParams{
-		XAPIKey: "x-api-key",
-	})
+	_, err := client.Swarms.GetLogs(context.TODO())
 	if err != nil {
 		var apierr *swarms.Error
 		if errors.As(err, &apierr) {
@@ -112,7 +108,6 @@ func TestSwarmRunWithOptionalParams(t *testing.T) {
 			Task:          swarms.String("task"),
 			Tasks:         []string{"string"},
 		},
-		XAPIKey: "x-api-key",
 	})
 	if err != nil {
 		var apierr *swarms.Error

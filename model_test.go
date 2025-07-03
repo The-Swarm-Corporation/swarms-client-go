@@ -26,9 +26,7 @@ func TestModelListAvailable(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Models.ListAvailable(context.TODO(), swarms.ModelListAvailableParams{
-		XAPIKey: "x-api-key",
-	})
+	_, err := client.Models.ListAvailable(context.TODO())
 	if err != nil {
 		var apierr *swarms.Error
 		if errors.As(err, &apierr) {

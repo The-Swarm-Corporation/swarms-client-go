@@ -31,13 +31,6 @@ func NewAgentBatchService(opts ...option.RequestOption) (r AgentBatchService) {
 }
 
 // Run a batch of agents with the specified tasks using a thread pool.
-//
-// Args: agent_completions: List of agent completion tasks to process x_api_key:
-// API key for authentication
-//
-// Returns: List[Dict[str, Any]]: List of results from completed agent tasks
-//
-// Raises: HTTPException: If there's an error processing the batch
 func (r *AgentBatchService) Run(ctx context.Context, body AgentBatchRunParams, opts ...option.RequestOption) (res *AgentBatchRunResponse, err error) {
 	opts = append(r.Options[:], opts...)
 	path := "v1/agent/batch/completions"

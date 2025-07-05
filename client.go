@@ -20,6 +20,7 @@ type Client struct {
 	Agent   AgentService
 	Models  ModelService
 	Swarms  SwarmService
+	Client  ClientService
 }
 
 // DefaultClientOptions read from the environment (SWARMS_API_KEY,
@@ -48,6 +49,7 @@ func NewClient(opts ...option.RequestOption) (r Client) {
 	r.Agent = NewAgentService(opts...)
 	r.Models = NewModelService(opts...)
 	r.Swarms = NewSwarmService(opts...)
+	r.Client = NewClientService(opts...)
 
 	return
 }

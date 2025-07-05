@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2025-07-04)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Features
+
+* **api:** /v1/ratelimits ([f8e8494](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/f8e8494556731e453520b736c0c589d43b2ef323))
+* **api:** api update ([edbc313](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/edbc3131ab23e18f7482d92b000da390c3ef7f5d))
+
 ## 0.1.0-alpha.1 (2025-07-03)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)

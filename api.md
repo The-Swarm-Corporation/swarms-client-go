@@ -80,3 +80,15 @@ Response Types:
 Methods:
 
 - <code title="post /v1/swarm/batch/completions">client.Swarms.Batch.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#SwarmBatchService.Run">Run</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, body <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#SwarmBatchRunParams">SwarmBatchRunParams</a>) ([]<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#SwarmBatchRunResponse">SwarmBatchRunResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+
+# Client
+
+## Rate
+
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientRateGetLimitsResponse">ClientRateGetLimitsResponse</a>
+
+Methods:
+
+- <code title="get /v1/rate/limits">client.Client.Rate.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientRateService.GetLimits">GetLimits</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) (<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientRateGetLimitsResponse">ClientRateGetLimitsResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>

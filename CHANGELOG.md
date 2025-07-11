@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0-alpha.3 (2025-07-11)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
+
+### Chores
+
+* **internal:** fix lint script for tests ([1b6fc79](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/1b6fc79b968863a977598be57aeae5055b13ade7))
+* lint tests ([5fa2072](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/5fa207261ad9b382465bdc4dae6f421d614b5ba4))
+* lint tests in subpackages ([716eb25](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/716eb254021a48a14b12a2ecf942c2fe16ca7821))
+
 ## 0.1.0-alpha.2 (2025-07-04)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)

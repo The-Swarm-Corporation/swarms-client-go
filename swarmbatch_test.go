@@ -46,7 +46,6 @@ func TestSwarmBatchRun(t *testing.T) {
 			}},
 			Description: swarms.String("description"),
 			Img:         swarms.String("img"),
-			Imgs:        []string{"string"},
 			MaxLoops:    swarms.Int(0),
 			Messages: swarms.SwarmSpecMessagesUnionParam{
 				OfMapOfAnyMap: []map[string]any{{

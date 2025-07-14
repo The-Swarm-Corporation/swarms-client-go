@@ -90,9 +90,6 @@ type SwarmSpecParam struct {
 	// A list of agents or specifications that define the agents participating in the
 	// swarm.
 	Agents []AgentSpecParam `json:"agents,omitzero"`
-	// A list of image URLs that may be associated with the swarm's task or
-	// representation.
-	Imgs []string `json:"imgs,omitzero"`
 	// A list of messages that the swarm should complete.
 	Messages SwarmSpecMessagesUnionParam `json:"messages,omitzero"`
 	// The classification of the swarm, indicating its operational style and

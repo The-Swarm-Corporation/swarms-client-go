@@ -46,6 +46,8 @@ type AgentCompletionParam struct {
 	// An optional image URL that may be associated with the agent's task or
 	// representation.
 	Img param.Opt[string] `json:"img,omitzero"`
+	// A flag indicating whether the agent should stream its output.
+	Stream param.Opt[bool] `json:"stream,omitzero"`
 	// The task to be completed by the agent.
 	Task param.Opt[string] `json:"task,omitzero"`
 	// The history of the agent's previous tasks and responses. Can be either a

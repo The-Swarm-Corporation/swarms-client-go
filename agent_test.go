@@ -49,9 +49,10 @@ func TestAgentRunWithOptionalParams(t *testing.T) {
 					"foo": "bar",
 				},
 			},
-			Img:  swarms.String("img"),
-			Imgs: []string{"string"},
-			Task: swarms.String("task"),
+			Img:    swarms.String("img"),
+			Imgs:   []string{"string"},
+			Stream: swarms.Bool(true),
+			Task:   swarms.String("task"),
 		},
 	})
 	if err != nil {

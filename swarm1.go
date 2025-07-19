@@ -98,7 +98,7 @@ type SwarmSpecParam struct {
 	// Any of "AgentRearrange", "MixtureOfAgents", "SpreadSheetSwarm",
 	// "SequentialWorkflow", "ConcurrentWorkflow", "GroupChat", "MultiAgentRouter",
 	// "AutoSwarmBuilder", "HiearchicalSwarm", "auto", "MajorityVoting", "MALT",
-	// "DeepResearchSwarm", "CouncilAsAJudge", "InteractiveGroupChat".
+	// "DeepResearchSwarm", "CouncilAsAJudge", "InteractiveGroupChat", "HeavySwarm".
 	SwarmType SwarmSpecSwarmType `json:"swarm_type,omitzero"`
 	// A list of tasks that the swarm should complete.
 	Tasks []string `json:"tasks,omitzero"`
@@ -158,6 +158,7 @@ const (
 	SwarmSpecSwarmTypeDeepResearchSwarm    SwarmSpecSwarmType = "DeepResearchSwarm"
 	SwarmSpecSwarmTypeCouncilAsAJudge      SwarmSpecSwarmType = "CouncilAsAJudge"
 	SwarmSpecSwarmTypeInteractiveGroupChat SwarmSpecSwarmType = "InteractiveGroupChat"
+	SwarmSpecSwarmTypeHeavySwarm           SwarmSpecSwarmType = "HeavySwarm"
 )
 
 type SwarmCheckAvailableResponse map[string]any

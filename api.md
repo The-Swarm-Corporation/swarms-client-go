@@ -81,6 +81,18 @@ Methods:
 
 - <code title="post /v1/swarm/batch/completions">client.Swarms.Batch.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#SwarmBatchService.Run">Run</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, body <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#SwarmBatchRunParams">SwarmBatchRunParams</a>) ([]<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#SwarmBatchRunResponse">SwarmBatchRunResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
+# ReasoningAgents
+
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ReasoningAgentNewCompletionResponse">ReasoningAgentNewCompletionResponse</a>
+- <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ReasoningAgentListTypesResponse">ReasoningAgentListTypesResponse</a>
+
+Methods:
+
+- <code title="post /v1/reasoning-agent/completions">client.ReasoningAgents.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ReasoningAgentService.NewCompletion">NewCompletion</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, body <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ReasoningAgentNewCompletionParams">ReasoningAgentNewCompletionParams</a>) (<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ReasoningAgentNewCompletionResponse">ReasoningAgentNewCompletionResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+- <code title="get /v1/reasoning-agent/types">client.ReasoningAgents.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ReasoningAgentService.ListTypes">ListTypes</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) (<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ReasoningAgentListTypesResponse">ReasoningAgentListTypesResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+
 # Client
 
 ## Rate

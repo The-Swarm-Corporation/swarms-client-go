@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.1.0-alpha.5 (2025-07-22)
+
+Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
+
+### Features
+
+* **api:** add reasoning agent endpoints and gitbook docs ([2c1901e](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/2c1901ec425d0e9bf511606357789201de9fa7d9))
+* **api:** add reasoning agent endpoints and gitbook docs ([2c1901e](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/2c1901ec425d0e9bf511606357789201de9fa7d9))
+* **api:** api update ([a6791e6](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/a6791e6f0f19a7e947f5f345849ca770b2826636))
+* **api:** api update ([700335f](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/700335f9aacba005b6209a3f30c42eb2fc1c0109))
+* **api:** api update ([17e07ee](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/17e07eed3911c8133b59ef31ec95e8c8e0cd1f2d))
+
+
+### Bug Fixes
+
+* **client:** process custom base url ahead of time ([e9783ec](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/e9783ec7e4d626a4a84530baa0f1ffaef4c39590))
+
 ## 0.1.0-alpha.4 (2025-07-13)
 
 Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)

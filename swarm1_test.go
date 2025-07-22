@@ -90,9 +90,12 @@ func TestSwarmRunWithOptionalParams(t *testing.T) {
 					"foo": "bar",
 				}},
 			}},
-			Description: swarms.String("description"),
-			Img:         swarms.String("img"),
-			MaxLoops:    swarms.Int(0),
+			Description:                      swarms.String("description"),
+			HeavySwarmLoopsPerAgent:          swarms.Int(0),
+			HeavySwarmQuestionAgentModelName: swarms.String("heavy_swarm_question_agent_model_name"),
+			HeavySwarmWorkerModelName:        swarms.String("heavy_swarm_worker_model_name"),
+			Img:                              swarms.String("img"),
+			MaxLoops:                         swarms.Int(0),
 			Messages: swarms.SwarmSpecMessagesUnionParam{
 				OfMapOfAnyMap: []map[string]any{{
 					"foo": "bar",

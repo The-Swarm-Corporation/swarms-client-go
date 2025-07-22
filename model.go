@@ -6,10 +6,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apijson"
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/requestconfig"
 	"github.com/The-Swarm-Corporation/swarms-client-go/option"
-	"github.com/The-Swarm-Corporation/swarms-client-go/packages/respjson"
 )
 
 // ModelService contains methods and other services that help with interacting with
@@ -39,20 +37,4 @@ func (r *ModelService) ListAvailable(ctx context.Context, opts ...option.Request
 	return
 }
 
-type ModelListAvailableResponse struct {
-	Models  any  `json:"models"`
-	Success bool `json:"success,nullable"`
-	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
-	JSON struct {
-		Models      respjson.Field
-		Success     respjson.Field
-		ExtraFields map[string]respjson.Field
-		raw         string
-	} `json:"-"`
-}
-
-// Returns the unmodified JSON received from the API
-func (r ModelListAvailableResponse) RawJSON() string { return r.JSON.raw }
-func (r *ModelListAvailableResponse) UnmarshalJSON(data []byte) error {
-	return apijson.UnmarshalRoot(data, r)
-}
+type ModelListAvailableResponse map[string]any

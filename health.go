@@ -6,8 +6,10 @@ import (
 	"context"
 	"net/http"
 
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apijson"
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/requestconfig"
 	"github.com/The-Swarm-Corporation/swarms-client-go/option"
+	"github.com/The-Swarm-Corporation/swarms-client-go/packages/respjson"
 )
 
 // HealthService contains methods and other services that help with interacting
@@ -37,4 +39,18 @@ func (r *HealthService) Check(ctx context.Context, opts ...option.RequestOption)
 	return
 }
 
-type HealthCheckResponse = any
+type HealthCheckResponse struct {
+	Status string `json:"status"`
+	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
+	JSON struct {
+		Status      respjson.Field
+		ExtraFields map[string]respjson.Field
+		raw         string
+	} `json:"-"`
+}
+
+// Returns the unmodified JSON received from the API
+func (r HealthCheckResponse) RawJSON() string { return r.JSON.raw }
+func (r *HealthCheckResponse) UnmarshalJSON(data []byte) error {
+	return apijson.UnmarshalRoot(data, r)
+}

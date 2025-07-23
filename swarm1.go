@@ -11,6 +11,7 @@ import (
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/requestconfig"
 	"github.com/The-Swarm-Corporation/swarms-client-go/option"
 	"github.com/The-Swarm-Corporation/swarms-client-go/packages/param"
+	"github.com/The-Swarm-Corporation/swarms-client-go/packages/respjson"
 )
 
 // SwarmService contains methods and other services that help with interacting with
@@ -63,6 +64,12 @@ type SwarmSpecParam struct {
 	// A comprehensive description of the swarm's objectives, capabilities, and
 	// intended outcomes.
 	Description param.Opt[string] `json:"description,omitzero"`
+	// The number of loops to run per agent in the heavy swarm.
+	HeavySwarmLoopsPerAgent param.Opt[int64] `json:"heavy_swarm_loops_per_agent,omitzero"`
+	// The model name to use for the question agent in the heavy swarm.
+	HeavySwarmQuestionAgentModelName param.Opt[string] `json:"heavy_swarm_question_agent_model_name,omitzero"`
+	// The model name to use for the worker agent in the heavy swarm.
+	HeavySwarmWorkerModelName param.Opt[string] `json:"heavy_swarm_worker_model_name,omitzero"`
 	// An optional image URL that may be associated with the swarm's task or
 	// representation.
 	Img param.Opt[string] `json:"img,omitzero"`
@@ -98,7 +105,7 @@ type SwarmSpecParam struct {
 	// Any of "AgentRearrange", "MixtureOfAgents", "SpreadSheetSwarm",
 	// "SequentialWorkflow", "ConcurrentWorkflow", "GroupChat", "MultiAgentRouter",
 	// "AutoSwarmBuilder", "HiearchicalSwarm", "auto", "MajorityVoting", "MALT",
-	// "DeepResearchSwarm", "CouncilAsAJudge", "InteractiveGroupChat".
+	// "DeepResearchSwarm", "CouncilAsAJudge", "InteractiveGroupChat", "HeavySwarm".
 	SwarmType SwarmSpecSwarmType `json:"swarm_type,omitzero"`
 	// A list of tasks that the swarm should complete.
 	Tasks []string `json:"tasks,omitzero"`
@@ -158,13 +165,92 @@ const (
 	SwarmSpecSwarmTypeDeepResearchSwarm    SwarmSpecSwarmType = "DeepResearchSwarm"
 	SwarmSpecSwarmTypeCouncilAsAJudge      SwarmSpecSwarmType = "CouncilAsAJudge"
 	SwarmSpecSwarmTypeInteractiveGroupChat SwarmSpecSwarmType = "InteractiveGroupChat"
+	SwarmSpecSwarmTypeHeavySwarm           SwarmSpecSwarmType = "HeavySwarm"
 )
 
-type SwarmCheckAvailableResponse map[string]any
+type SwarmCheckAvailableResponse struct {
+	Success    bool `json:"success,nullable"`
+	SwarmTypes any  `json:"swarm_types"`
+	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
+	JSON struct {
+		Success     respjson.Field
+		SwarmTypes  respjson.Field
+		ExtraFields map[string]respjson.Field
+		raw         string
+	} `json:"-"`
+}
 
-type SwarmGetLogsResponse map[string]any
+// Returns the unmodified JSON received from the API
+func (r SwarmCheckAvailableResponse) RawJSON() string { return r.JSON.raw }
+func (r *SwarmCheckAvailableResponse) UnmarshalJSON(data []byte) error {
+	return apijson.UnmarshalRoot(data, r)
+}
 
-type SwarmRunResponse map[string]any
+type SwarmGetLogsResponse struct {
+	Count     int64  `json:"count,nullable"`
+	Logs      any    `json:"logs"`
+	Status    string `json:"status,nullable"`
+	Timestamp string `json:"timestamp,nullable"`
+	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
+	JSON struct {
+		Count       respjson.Field
+		Logs        respjson.Field
+		Status      respjson.Field
+		Timestamp   respjson.Field
+		ExtraFields map[string]respjson.Field
+		raw         string
+	} `json:"-"`
+}
+
+// Returns the unmodified JSON received from the API
+func (r SwarmGetLogsResponse) RawJSON() string { return r.JSON.raw }
+func (r *SwarmGetLogsResponse) UnmarshalJSON(data []byte) error {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+type SwarmRunResponse struct {
+	// The description of the swarm.
+	Description string `json:"description,required"`
+	// The execution time of the swarm.
+	ExecutionTime float64 `json:"execution_time,required"`
+	// The unique identifier for the swarm completion.
+	JobID string `json:"job_id,required"`
+	// The number of agents in the swarm.
+	NumberOfAgents int64 `json:"number_of_agents,required"`
+	// The output of the swarm.
+	Output any `json:"output,required"`
+	// The service tier of the swarm.
+	ServiceTier string `json:"service_tier,required"`
+	// The status of the swarm completion.
+	Status string `json:"status,required"`
+	// The name of the swarm.
+	SwarmName string `json:"swarm_name,required"`
+	// The type of the swarm.
+	SwarmType string `json:"swarm_type,required"`
+	// The usage of the swarm.
+	Usage map[string]any `json:"usage,required"`
+	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
+	JSON struct {
+		Description    respjson.Field
+		ExecutionTime  respjson.Field
+		JobID          respjson.Field
+		NumberOfAgents respjson.Field
+		Output         respjson.Field
+		ServiceTier    respjson.Field
+		Status         respjson.Field
+		SwarmName      respjson.Field
+		SwarmType      respjson.Field
+		Usage          respjson.Field
+		ExtraFields    map[string]respjson.Field
+		raw            string
+	} `json:"-"`
+}
+
+// Returns the unmodified JSON received from the API
+func (r SwarmRunResponse) RawJSON() string { return r.JSON.raw }
+func (r *SwarmRunResponse) UnmarshalJSON(data []byte) error {
+	return apijson.UnmarshalRoot(data, r)
+}
 
 type SwarmRunParams struct {
 	SwarmSpec SwarmSpecParam

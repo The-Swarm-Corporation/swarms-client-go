@@ -15,12 +15,13 @@ import (
 // interacting with the swarms-client API. You should not instantiate this client
 // directly, and instead use the [NewClient] method instead.
 type Client struct {
-	Options []option.RequestOption
-	Health  HealthService
-	Agent   AgentService
-	Models  ModelService
-	Swarms  SwarmService
-	Client  ClientService
+	Options         []option.RequestOption
+	Health          HealthService
+	Agent           AgentService
+	Models          ModelService
+	Swarms          SwarmService
+	ReasoningAgents ReasoningAgentService
+	Client          ClientService
 }
 
 // DefaultClientOptions read from the environment (SWARMS_API_KEY,
@@ -49,6 +50,7 @@ func NewClient(opts ...option.RequestOption) (r Client) {
 	r.Agent = NewAgentService(opts...)
 	r.Models = NewModelService(opts...)
 	r.Swarms = NewSwarmService(opts...)
+	r.ReasoningAgents = NewReasoningAgentService(opts...)
 	r.Client = NewClientService(opts...)
 
 	return

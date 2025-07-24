@@ -43,8 +43,9 @@ func (r *SwarmService) CheckAvailable(ctx context.Context, opts ...option.Reques
 	return
 }
 
-// Get all API request logs for the user associated with the provided API key,
-// excluding any logs that contain a client_ip field in their data.
+// Get all API request logs for all API keys associated with the user identified by
+// the provided API key, excluding any logs that contain a client_ip field in their
+// data.
 func (r *SwarmService) GetLogs(ctx context.Context, opts ...option.RequestOption) (res *SwarmGetLogsResponse, err error) {
 	opts = append(r.Options[:], opts...)
 	path := "v1/swarm/logs"

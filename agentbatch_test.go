@@ -29,17 +29,21 @@ func TestAgentBatchRun(t *testing.T) {
 	_, err := client.Agent.Batch.Run(context.TODO(), swarms.AgentBatchRunParams{
 		Body: []swarms.AgentCompletionParam{{
 			AgentConfig: swarms.AgentSpecParam{
-				AgentName:          swarms.String("agent_name"),
-				AutoGeneratePrompt: swarms.Bool(true),
-				Description:        swarms.String("description"),
-				MaxLoops:           swarms.Int(0),
-				MaxTokens:          swarms.Int(0),
-				McpURL:             swarms.String("mcp_url"),
-				ModelName:          swarms.String("model_name"),
-				Role:               swarms.String("role"),
-				StreamingOn:        swarms.Bool(true),
-				SystemPrompt:       swarms.String("system_prompt"),
-				Temperature:        swarms.Float(0),
+				AgentName:                 swarms.String("agent_name"),
+				AutoGeneratePrompt:        swarms.Bool(true),
+				Description:               swarms.String("description"),
+				DynamicTemperatureEnabled: swarms.Bool(true),
+				LlmArgs: map[string]any{
+					"foo": "bar",
+				},
+				MaxLoops:     swarms.Int(0),
+				MaxTokens:    swarms.Int(0),
+				McpURL:       swarms.String("mcp_url"),
+				ModelName:    swarms.String("model_name"),
+				Role:         swarms.String("role"),
+				StreamingOn:  swarms.Bool(true),
+				SystemPrompt: swarms.String("system_prompt"),
+				Temperature:  swarms.Float(0),
 				ToolsListDictionary: []map[string]any{{
 					"foo": "bar",
 				}},

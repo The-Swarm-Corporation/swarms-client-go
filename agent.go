@@ -106,6 +106,9 @@ type AgentSpecParam struct {
 	// A detailed explanation of the agent's purpose, capabilities, and any specific
 	// tasks it is designed to perform.
 	Description param.Opt[string] `json:"description,omitzero"`
+	// A flag indicating whether the agent should dynamically adjust its temperature
+	// based on the task.
+	DynamicTemperatureEnabled param.Opt[bool] `json:"dynamic_temperature_enabled,omitzero"`
 	// The maximum number of times the agent is allowed to repeat its task, enabling
 	// iterative processing if necessary.
 	MaxLoops param.Opt[int64] `json:"max_loops,omitzero"`
@@ -128,6 +131,9 @@ type AgentSpecParam struct {
 	// A parameter that controls the randomness of the agent's output; lower values
 	// result in more deterministic responses.
 	Temperature param.Opt[float64] `json:"temperature,omitzero"`
+	// Additional arguments to pass to the LLM such as top_p, frequency_penalty,
+	// presence_penalty, etc.
+	LlmArgs map[string]any `json:"llm_args,omitzero"`
 	// A dictionary of tools that the agent can use to complete its task.
 	ToolsListDictionary []map[string]any `json:"tools_list_dictionary,omitzero"`
 	paramObj

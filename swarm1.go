@@ -82,9 +82,6 @@ type SwarmSpecParam struct {
 	Name param.Opt[string] `json:"name,omitzero"`
 	// Instructions on how to rearrange the flow of tasks among agents, if applicable.
 	RearrangeFlow param.Opt[string] `json:"rearrange_flow,omitzero"`
-	// A flag indicating whether the swarm should return its execution history along
-	// with the final output.
-	ReturnHistory param.Opt[bool] `json:"return_history,omitzero"`
 	// Guidelines or constraints that govern the behavior and interactions of the
 	// agents within the swarm.
 	Rules param.Opt[string] `json:"rules,omitzero"`

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.7 (2025-08-07)
+
+Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
+
+### Features
+
+* **client:** support optional json html escaping ([9768f1d](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/9768f1d70843d5e9da626aea94209ef4dc96ebd6))
+
 ## 0.1.0-alpha.6 (2025-08-07)
 
 Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)

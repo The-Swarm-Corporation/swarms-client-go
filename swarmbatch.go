@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"net/http"
 
+	shimjson "github.com/The-Swarm-Corporation/swarms-client-go/internal/encoding/json"
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/requestconfig"
 	"github.com/The-Swarm-Corporation/swarms-client-go/option"
 )
@@ -46,7 +47,7 @@ type SwarmBatchRunParams struct {
 }
 
 func (r SwarmBatchRunParams) MarshalJSON() (data []byte, err error) {
-	return json.Marshal(r.Body)
+	return shimjson.Marshal(r.Body)
 }
 func (r *SwarmBatchRunParams) UnmarshalJSON(data []byte) error {
 	return json.Unmarshal(data, &r.Body)

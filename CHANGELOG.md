@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.8 (2025-08-09)
+
+Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
+
+### Chores
+
+* **internal:** update comment in script ([1eeb714](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/1eeb71477b50b9c30f5b8ea694f8031a12d0d16f))
+* update @stainless-api/prism-cli to v5.15.0 ([db3aa3d](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/db3aa3d3d24e9139a64cc569441efb31a7e0adde))
+
 ## 0.1.0-alpha.7 (2025-08-07)
 
 Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)

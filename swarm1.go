@@ -54,7 +54,7 @@ func (r *SwarmService) GetLogs(ctx context.Context, opts ...option.RequestOption
 	return
 }
 
-// Run a swarm with the specified task.
+// Run a swarm with the specified task. Supports streaming when stream=True.
 func (r *SwarmService) Run(ctx context.Context, body SwarmRunParams, opts ...option.RequestOption) (res *SwarmRunResponse, err error) {
 	opts = append(r.Options[:], opts...)
 	path := "v1/swarm/completions"
@@ -101,10 +101,10 @@ type SwarmSpecParam struct {
 	// The classification of the swarm, indicating its operational style and
 	// methodology.
 	//
-	// Any of "AgentRearrange", "MixtureOfAgents", "SpreadSheetSwarm",
-	// "SequentialWorkflow", "ConcurrentWorkflow", "GroupChat", "MultiAgentRouter",
-	// "AutoSwarmBuilder", "HiearchicalSwarm", "auto", "MajorityVoting", "MALT",
-	// "DeepResearchSwarm", "CouncilAsAJudge", "InteractiveGroupChat", "HeavySwarm".
+	// Any of "AgentRearrange", "MixtureOfAgents", "SequentialWorkflow",
+	// "ConcurrentWorkflow", "GroupChat", "MultiAgentRouter", "AutoSwarmBuilder",
+	// "HiearchicalSwarm", "auto", "MajorityVoting", "MALT", "DeepResearchSwarm",
+	// "CouncilAsAJudge", "InteractiveGroupChat", "HeavySwarm".
 	SwarmType SwarmSpecSwarmType `json:"swarm_type,omitzero"`
 	// A list of tasks that the swarm should complete.
 	Tasks []string `json:"tasks,omitzero"`
@@ -151,7 +151,6 @@ type SwarmSpecSwarmType string
 const (
 	SwarmSpecSwarmTypeAgentRearrange       SwarmSpecSwarmType = "AgentRearrange"
 	SwarmSpecSwarmTypeMixtureOfAgents      SwarmSpecSwarmType = "MixtureOfAgents"
-	SwarmSpecSwarmTypeSpreadSheetSwarm     SwarmSpecSwarmType = "SpreadSheetSwarm"
 	SwarmSpecSwarmTypeSequentialWorkflow   SwarmSpecSwarmType = "SequentialWorkflow"
 	SwarmSpecSwarmTypeConcurrentWorkflow   SwarmSpecSwarmType = "ConcurrentWorkflow"
 	SwarmSpecSwarmTypeGroupChat            SwarmSpecSwarmType = "GroupChat"

@@ -5,6 +5,7 @@ package swarms
 import (
 	"context"
 	"net/http"
+	"slices"
 
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apijson"
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/requestconfig"
@@ -33,7 +34,7 @@ func NewModelService(opts ...option.RequestOption) (r ModelService) {
 
 // Get all available models.
 func (r *ModelService) ListAvailable(ctx context.Context, opts ...option.RequestOption) (res *ModelListAvailableResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "v1/models/available"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return

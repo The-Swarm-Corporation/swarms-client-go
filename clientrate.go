@@ -5,6 +5,7 @@ package swarms
 import (
 	"context"
 	"net/http"
+	"slices"
 
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apijson"
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/requestconfig"
@@ -34,7 +35,7 @@ func NewClientRateService(opts ...option.RequestOption) (r ClientRateService) {
 // Get the rate limits and current usage for the user associated with the provided
 // API key.
 func (r *ClientRateService) GetLimits(ctx context.Context, opts ...option.RequestOption) (res *ClientRateGetLimitsResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "v1/rate/limits"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return

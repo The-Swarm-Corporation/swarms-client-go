@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"slices"
 
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apijson"
 	shimjson "github.com/The-Swarm-Corporation/swarms-client-go/internal/encoding/json"
@@ -35,7 +36,7 @@ func NewAgentBatchService(opts ...option.RequestOption) (r AgentBatchService) {
 
 // Run a batch of agents with the specified tasks using a thread pool.
 func (r *AgentBatchService) Run(ctx context.Context, body AgentBatchRunParams, opts ...option.RequestOption) (res *AgentBatchRunResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "v1/agent/batch/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
 	return

@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"slices"
 
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apijson"
 	shimjson "github.com/The-Swarm-Corporation/swarms-client-go/internal/encoding/json"
@@ -38,7 +39,7 @@ func NewAgentService(opts ...option.RequestOption) (r AgentService) {
 
 // Run an agent with the specified task. Supports streaming when stream=True.
 func (r *AgentService) Run(ctx context.Context, body AgentRunParams, opts ...option.RequestOption) (res *AgentRunResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "v1/agent/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
 	return

@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.1.0-alpha.8 (2025-09-27)
+
+Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
+
+### Features
+
+* **api:** api update ([32168c8](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/32168c85a81ef4a9373e104e8f87c9a097b13434))
+* **api:** api update ([416dee9](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/416dee9b6f1156b4f9815739be31f44291a10e09))
+
+
+### Bug Fixes
+
+* bugfix for setting JSON keys with special characters ([21aff6e](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/21aff6ee2ac2dac49fdb8386ac2d17eaebf8ec2b))
+* close body before retrying ([4280282](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/4280282d74a925876fd7a6ee23a8a921bffed9cd))
+* **internal:** unmarshal correctly when there are multiple discriminators ([c21c2e2](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/c21c2e2bedc000c04066cf818390c98172667798))
+* use slices.Concat instead of sometimes modifying r.Options ([7ef4cdf](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/7ef4cdf57bfdc5f995e62de186c2afda7c2e9a9e))
+
+
+### Chores
+
+* bump minimum go version to 1.22 ([2440b69](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/2440b692b239bedd7c20c96469ec374fc768fb4a))
+* do not install brew dependencies in ./scripts/bootstrap by default ([7c85e75](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/7c85e75aea01d21d2dadbc49e77f471bd58bf124))
+* **internal:** codegen related update ([7f33955](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/7f33955331796901108353c04a4bf8a16afc7754))
+* **internal:** codegen related update ([5ba3142](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/5ba314285b090a542b202ce22e321289a1bcd15c))
+* **internal:** update comment in script ([1eeb714](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/1eeb71477b50b9c30f5b8ea694f8031a12d0d16f))
+* update @stainless-api/prism-cli to v5.15.0 ([db3aa3d](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/db3aa3d3d24e9139a64cc569441efb31a7e0adde))
+* update more docs for 1.22 ([71293e9](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/71293e90ab8b725b1f278a126b7da5073f99041c))
+
 ## 0.1.0-alpha.7 (2025-08-07)
 
 Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)

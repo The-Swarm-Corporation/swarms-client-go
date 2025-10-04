@@ -14,7 +14,7 @@ import (
 )
 
 func TestSwarmCheckAvailable(t *testing.T) {
-	t.Skip("skipped: tests are disabled for the time being")
+	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -37,7 +37,7 @@ func TestSwarmCheckAvailable(t *testing.T) {
 }
 
 func TestSwarmGetLogs(t *testing.T) {
-	t.Skip("skipped: tests are disabled for the time being")
+	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -60,7 +60,7 @@ func TestSwarmGetLogs(t *testing.T) {
 }
 
 func TestSwarmRunWithOptionalParams(t *testing.T) {
-	t.Skip("skipped: tests are disabled for the time being")
+	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -82,14 +82,46 @@ func TestSwarmRunWithOptionalParams(t *testing.T) {
 				LlmArgs: map[string]any{
 					"foo": "bar",
 				},
-				MaxLoops:     swarms.Int(0),
-				MaxTokens:    swarms.Int(0),
-				McpURL:       swarms.String("mcp_url"),
-				ModelName:    swarms.String("model_name"),
-				Role:         swarms.String("role"),
-				StreamingOn:  swarms.Bool(true),
-				SystemPrompt: swarms.String("system_prompt"),
-				Temperature:  swarms.Float(0),
+				MaxLoops:  swarms.Int(0),
+				MaxTokens: swarms.Int(0),
+				McpConfig: swarms.AgentSpecMcpConfigParam{
+					AuthorizationToken: swarms.String("authorization_token"),
+					Headers: map[string]string{
+						"foo": "string",
+					},
+					Timeout: swarms.Int(0),
+					ToolConfigurations: map[string]any{
+						"foo": "bar",
+					},
+					Transport: swarms.String("transport"),
+					Type:      swarms.String("type"),
+					URL:       swarms.String("url"),
+				},
+				McpConfigs: swarms.AgentSpecMcpConfigsParam{
+					Connections: []swarms.AgentSpecMcpConfigsConnectionParam{{
+						AuthorizationToken: swarms.String("authorization_token"),
+						Headers: map[string]string{
+							"foo": "string",
+						},
+						Timeout: swarms.Int(0),
+						ToolConfigurations: map[string]any{
+							"foo": "bar",
+						},
+						Transport: swarms.String("transport"),
+						Type:      swarms.String("type"),
+						URL:       swarms.String("url"),
+					}},
+				},
+				McpURL:           swarms.String("mcp_url"),
+				ModelName:        swarms.String("model_name"),
+				ReasoningEffort:  swarms.String("reasoning_effort"),
+				ReasoningEnabled: swarms.Bool(true),
+				Role:             swarms.String("role"),
+				StreamingOn:      swarms.Bool(true),
+				SystemPrompt:     swarms.String("system_prompt"),
+				Temperature:      swarms.Float(0),
+				ThinkingTokens:   swarms.Int(0),
+				ToolCallSummary:  swarms.Bool(true),
 				ToolsListDictionary: []map[string]any{{
 					"foo": "bar",
 				}},

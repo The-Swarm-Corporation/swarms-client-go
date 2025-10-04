@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"slices"
 
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apijson"
 	shimjson "github.com/The-Swarm-Corporation/swarms-client-go/internal/encoding/json"
@@ -36,9 +37,9 @@ func NewAgentService(opts ...option.RequestOption) (r AgentService) {
 	return
 }
 
-// Run an agent with the specified task.
+// Run an agent with the specified task. Supports streaming when stream=True.
 func (r *AgentService) Run(ctx context.Context, body AgentRunParams, opts ...option.RequestOption) (res *AgentRunResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "v1/agent/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
 	return
@@ -48,8 +49,6 @@ type AgentCompletionParam struct {
 	// An optional image URL that may be associated with the agent's task or
 	// representation.
 	Img param.Opt[string] `json:"img,omitzero"`
-	// A flag indicating whether the agent should stream its output.
-	Stream param.Opt[bool] `json:"stream,omitzero"`
 	// The task to be completed by the agent.
 	Task param.Opt[string] `json:"task,omitzero"`
 	// The history of the agent's previous tasks and responses. Can be either a
@@ -58,6 +57,8 @@ type AgentCompletionParam struct {
 	// A list of image URLs that may be associated with the agent's task or
 	// representation.
 	Imgs []string `json:"imgs,omitzero"`
+	// A list of tools that the agent should use to complete its task.
+	ToolsEnabled []string `json:"tools_enabled,omitzero"`
 	// The configuration of the agent to be completed.
 	AgentConfig AgentSpecParam `json:"agent_config,omitzero"`
 	paramObj
@@ -121,6 +122,10 @@ type AgentSpecParam struct {
 	// The name of the AI model that the agent will utilize for processing tasks and
 	// generating outputs. For example: gpt-4o, gpt-4o-mini, openai/o3-mini
 	ModelName param.Opt[string] `json:"model_name,omitzero"`
+	// The effort to put into reasoning.
+	ReasoningEffort param.Opt[string] `json:"reasoning_effort,omitzero"`
+	// A parameter enabling an agent to use reasoning.
+	ReasoningEnabled param.Opt[bool] `json:"reasoning_enabled,omitzero"`
 	// The designated role of the agent within the swarm, which influences its behavior
 	// and interaction with other agents.
 	Role param.Opt[string] `json:"role,omitzero"`
@@ -132,9 +137,18 @@ type AgentSpecParam struct {
 	// A parameter that controls the randomness of the agent's output; lower values
 	// result in more deterministic responses.
 	Temperature param.Opt[float64] `json:"temperature,omitzero"`
+	// The number of tokens to use for thinking.
+	ThinkingTokens param.Opt[int64] `json:"thinking_tokens,omitzero"`
+	// A parameter enabling an agent to summarize tool calls.
+	ToolCallSummary param.Opt[bool] `json:"tool_call_summary,omitzero"`
 	// Additional arguments to pass to the LLM such as top_p, frequency_penalty,
 	// presence_penalty, etc.
 	LlmArgs map[string]any `json:"llm_args,omitzero"`
+	// The MCP connection to use for the agent.
+	McpConfig AgentSpecMcpConfigParam `json:"mcp_config,omitzero"`
+	// The MCP connections to use for the agent. This is a list of MCP connections.
+	// Includes multiple MCP connections.
+	McpConfigs AgentSpecMcpConfigsParam `json:"mcp_configs,omitzero"`
 	// A dictionary of tools that the agent can use to complete its task.
 	ToolsListDictionary []map[string]any `json:"tools_list_dictionary,omitzero"`
 	paramObj
@@ -148,11 +162,84 @@ func (r *AgentSpecParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
 
+// The MCP connection to use for the agent.
+type AgentSpecMcpConfigParam struct {
+	// Authentication token for accessing the MCP server
+	AuthorizationToken param.Opt[string] `json:"authorization_token,omitzero"`
+	// Timeout for the MCP server
+	Timeout param.Opt[int64] `json:"timeout,omitzero"`
+	// The transport protocol to use for the MCP server
+	Transport param.Opt[string] `json:"transport,omitzero"`
+	// The type of connection, defaults to 'mcp'
+	Type param.Opt[string] `json:"type,omitzero"`
+	// The URL endpoint for the MCP server
+	URL param.Opt[string] `json:"url,omitzero"`
+	// Headers to send to the MCP server
+	Headers map[string]string `json:"headers,omitzero"`
+	// Dictionary containing configuration settings for MCP tools
+	ToolConfigurations map[string]any `json:"tool_configurations,omitzero"`
+	ExtraFields        map[string]any `json:"-"`
+	paramObj
+}
+
+func (r AgentSpecMcpConfigParam) MarshalJSON() (data []byte, err error) {
+	type shadow AgentSpecMcpConfigParam
+	return param.MarshalWithExtras(r, (*shadow)(&r), r.ExtraFields)
+}
+func (r *AgentSpecMcpConfigParam) UnmarshalJSON(data []byte) error {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+// The MCP connections to use for the agent. This is a list of MCP connections.
+// Includes multiple MCP connections.
+//
+// The property Connections is required.
+type AgentSpecMcpConfigsParam struct {
+	// List of MCP connections
+	Connections []AgentSpecMcpConfigsConnectionParam `json:"connections,omitzero,required"`
+	paramObj
+}
+
+func (r AgentSpecMcpConfigsParam) MarshalJSON() (data []byte, err error) {
+	type shadow AgentSpecMcpConfigsParam
+	return param.MarshalObject(r, (*shadow)(&r))
+}
+func (r *AgentSpecMcpConfigsParam) UnmarshalJSON(data []byte) error {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+type AgentSpecMcpConfigsConnectionParam struct {
+	// Authentication token for accessing the MCP server
+	AuthorizationToken param.Opt[string] `json:"authorization_token,omitzero"`
+	// Timeout for the MCP server
+	Timeout param.Opt[int64] `json:"timeout,omitzero"`
+	// The transport protocol to use for the MCP server
+	Transport param.Opt[string] `json:"transport,omitzero"`
+	// The type of connection, defaults to 'mcp'
+	Type param.Opt[string] `json:"type,omitzero"`
+	// The URL endpoint for the MCP server
+	URL param.Opt[string] `json:"url,omitzero"`
+	// Headers to send to the MCP server
+	Headers map[string]string `json:"headers,omitzero"`
+	// Dictionary containing configuration settings for MCP tools
+	ToolConfigurations map[string]any `json:"tool_configurations,omitzero"`
+	ExtraFields        map[string]any `json:"-"`
+	paramObj
+}
+
+func (r AgentSpecMcpConfigsConnectionParam) MarshalJSON() (data []byte, err error) {
+	type shadow AgentSpecMcpConfigsConnectionParam
+	return param.MarshalWithExtras(r, (*shadow)(&r), r.ExtraFields)
+}
+func (r *AgentSpecMcpConfigsConnectionParam) UnmarshalJSON(data []byte) error {
+	return apijson.UnmarshalRoot(data, r)
+}
+
 type AgentRunResponse struct {
-	// The unique identifier for the agent completion.
-	ID string `json:"id,nullable"`
 	// A description of the agent or completion.
 	Description string `json:"description,nullable"`
+	// The unique identifier for the agent completion.
+	JobID string `json:"job_id,nullable"`
 	// The name of the agent.
 	Name string `json:"name,nullable"`
 	// The outputs generated by the agent.
@@ -167,8 +254,8 @@ type AgentRunResponse struct {
 	Usage map[string]any `json:"usage,nullable"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
-		ID          respjson.Field
 		Description respjson.Field
+		JobID       respjson.Field
 		Name        respjson.Field
 		Outputs     respjson.Field
 		Success     respjson.Field

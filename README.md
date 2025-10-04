@@ -1,6 +1,10 @@
 # Swarms Client Go API Library
 
+<!-- x-release-please-start-version -->
+
 <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go"><img src="https://pkg.go.dev/badge/github.com/The-Swarm-Corporation/swarms-client-go.svg" alt="Go Reference"></a>
+
+<!-- x-release-please-end -->
 
 The Swarms Client Go library provides convenient access to the [Swarms Client REST API](https://docs.swarms.world/en/latest/)
 from applications written in Go.
@@ -24,14 +28,14 @@ Or to pin the version:
 <!-- x-release-please-start-version -->
 
 ```sh
-go get -u 'github.com/The-Swarm-Corporation/swarms-client-go@v0.1.0-alpha.7'
+go get -u 'github.com/The-Swarm-Corporation/swarms-client-go@v0.1.0-alpha.8'
 ```
 
 <!-- x-release-please-end -->
 
 ## Requirements
 
-This library requires Go 1.18+.
+This library requires Go 1.22+.
 
 ## Usage
 

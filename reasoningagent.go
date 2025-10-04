@@ -5,6 +5,7 @@ package swarms
 import (
 	"context"
 	"net/http"
+	"slices"
 
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apijson"
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/requestconfig"
@@ -33,7 +34,7 @@ func NewReasoningAgentService(opts ...option.RequestOption) (r ReasoningAgentSer
 
 // Run a reasoning agent with the specified task.
 func (r *ReasoningAgentService) NewCompletion(ctx context.Context, body ReasoningAgentNewCompletionParams, opts ...option.RequestOption) (res *ReasoningAgentNewCompletionResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "v1/reasoning-agent/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
 	return
@@ -41,7 +42,7 @@ func (r *ReasoningAgentService) NewCompletion(ctx context.Context, body Reasonin
 
 // Get the types of reasoning agents available.
 func (r *ReasoningAgentService) ListTypes(ctx context.Context, opts ...option.RequestOption) (res *ReasoningAgentListTypesResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "v1/reasoning-agent/types"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return

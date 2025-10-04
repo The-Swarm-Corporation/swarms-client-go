@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"slices"
 
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apijson"
 	shimjson "github.com/The-Swarm-Corporation/swarms-client-go/internal/encoding/json"
@@ -38,7 +39,7 @@ func NewSwarmService(opts ...option.RequestOption) (r SwarmService) {
 
 // Check the available swarm types.
 func (r *SwarmService) CheckAvailable(ctx context.Context, opts ...option.RequestOption) (res *SwarmCheckAvailableResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "v1/swarms/available"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
@@ -48,15 +49,15 @@ func (r *SwarmService) CheckAvailable(ctx context.Context, opts ...option.Reques
 // the provided API key, excluding any logs that contain a client_ip field in their
 // data.
 func (r *SwarmService) GetLogs(ctx context.Context, opts ...option.RequestOption) (res *SwarmGetLogsResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "v1/swarm/logs"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
 }
 
-// Run a swarm with the specified task.
+// Run a swarm with the specified task. Supports streaming when stream=True.
 func (r *SwarmService) Run(ctx context.Context, body SwarmRunParams, opts ...option.RequestOption) (res *SwarmRunResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "v1/swarm/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
 	return
@@ -101,10 +102,10 @@ type SwarmSpecParam struct {
 	// The classification of the swarm, indicating its operational style and
 	// methodology.
 	//
-	// Any of "AgentRearrange", "MixtureOfAgents", "SpreadSheetSwarm",
-	// "SequentialWorkflow", "ConcurrentWorkflow", "GroupChat", "MultiAgentRouter",
-	// "AutoSwarmBuilder", "HiearchicalSwarm", "auto", "MajorityVoting", "MALT",
-	// "DeepResearchSwarm", "CouncilAsAJudge", "InteractiveGroupChat", "HeavySwarm".
+	// Any of "AgentRearrange", "MixtureOfAgents", "SequentialWorkflow",
+	// "ConcurrentWorkflow", "GroupChat", "MultiAgentRouter", "AutoSwarmBuilder",
+	// "HiearchicalSwarm", "auto", "MajorityVoting", "MALT", "DeepResearchSwarm",
+	// "CouncilAsAJudge", "InteractiveGroupChat", "HeavySwarm".
 	SwarmType SwarmSpecSwarmType `json:"swarm_type,omitzero"`
 	// A list of tasks that the swarm should complete.
 	Tasks []string `json:"tasks,omitzero"`
@@ -151,7 +152,6 @@ type SwarmSpecSwarmType string
 const (
 	SwarmSpecSwarmTypeAgentRearrange       SwarmSpecSwarmType = "AgentRearrange"
 	SwarmSpecSwarmTypeMixtureOfAgents      SwarmSpecSwarmType = "MixtureOfAgents"
-	SwarmSpecSwarmTypeSpreadSheetSwarm     SwarmSpecSwarmType = "SpreadSheetSwarm"
 	SwarmSpecSwarmTypeSequentialWorkflow   SwarmSpecSwarmType = "SequentialWorkflow"
 	SwarmSpecSwarmTypeConcurrentWorkflow   SwarmSpecSwarmType = "ConcurrentWorkflow"
 	SwarmSpecSwarmTypeGroupChat            SwarmSpecSwarmType = "GroupChat"

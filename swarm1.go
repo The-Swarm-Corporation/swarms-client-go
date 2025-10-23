@@ -168,8 +168,8 @@ const (
 )
 
 type SwarmCheckAvailableResponse struct {
-	Success    bool `json:"success,nullable"`
-	SwarmTypes any  `json:"swarm_types,nullable"`
+	Success    bool     `json:"success,nullable"`
+	SwarmTypes []string `json:"swarm_types,nullable"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		Success     respjson.Field

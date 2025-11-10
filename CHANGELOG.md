@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.10 (2025-11-10)
+
+Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
+
+### Chores
+
+* **internal:** grammar fix (it's -&gt; its) ([9466450](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/9466450b225e07ad4ab14bbaed10ba25fd368ef3))
+
 ## 0.1.0-alpha.9 (2025-10-21)
 
 Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)

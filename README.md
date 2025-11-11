@@ -6,7 +6,7 @@
 
 <!-- x-release-please-end -->
 
-The Swarms Client Go library provides convenient access to the [Swarms Client REST API](https://docs.swarms.world/en/latest/)
+The Swarms Client Go library provides convenient access to the [Swarms Client REST API](https://docs.swarms.ai)
 from applications written in Go.
 
 It is generated with [Stainless](https://www.stainless.com/).
@@ -55,6 +55,7 @@ import (
 func main() {
 	client := swarms.NewClient(
 		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("SWARMS_API_KEY")
+		option.WithEnvironmentSandbox(), // defaults to option.WithEnvironmentProduction()
 	)
 	response, err := client.GetRoot(context.TODO())
 	if err != nil {

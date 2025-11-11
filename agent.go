@@ -37,6 +37,15 @@ func NewAgentService(opts ...option.RequestOption) (r AgentService) {
 	return
 }
 
+// Get all unique agent configurations that the user has created or used, without
+// task details. Allows users to reuse agent configs with new tasks.
+func (r *AgentService) List(ctx context.Context, opts ...option.RequestOption) (res *AgentListResponse, err error) {
+	opts = slices.Concat(r.Options, opts)
+	path := "v1/agents/list"
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
+	return
+}
+
 // Run an agent with the specified task. Supports streaming when stream=True.
 func (r *AgentService) Run(ctx context.Context, body AgentRunParams, opts ...option.RequestOption) (res *AgentRunResponse, err error) {
 	opts = slices.Concat(r.Options, opts)
@@ -234,6 +243,8 @@ func (r AgentSpecMcpConfigsConnectionParam) MarshalJSON() (data []byte, err erro
 func (r *AgentSpecMcpConfigsConnectionParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
+
+type AgentListResponse map[string]any
 
 type AgentRunResponse struct {
 	// A description of the agent or completion.

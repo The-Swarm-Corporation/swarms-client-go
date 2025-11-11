@@ -13,8 +13,13 @@ import (
 // automatically. You should not instantiate this service directly, and instead use
 // the [NewClientService] method instead.
 type ClientService struct {
-	Options []option.RequestOption
-	Rate    ClientRateService
+	Options             []option.RequestOption
+	Rate                ClientRateService
+	AutoSwarmBuilder    ClientAutoSwarmBuilderService
+	AdvancedResearch    ClientAdvancedResearchService
+	Tools               ClientToolService
+	Marketplace         ClientMarketplaceService
+	BatchedGridWorkflow ClientBatchedGridWorkflowService
 }
 
 // NewClientService generates a new service that applies the given options to each
@@ -24,5 +29,10 @@ func NewClientService(opts ...option.RequestOption) (r ClientService) {
 	r = ClientService{}
 	r.Options = opts
 	r.Rate = NewClientRateService(opts...)
+	r.AutoSwarmBuilder = NewClientAutoSwarmBuilderService(opts...)
+	r.AdvancedResearch = NewClientAdvancedResearchService(opts...)
+	r.Tools = NewClientToolService(opts...)
+	r.Marketplace = NewClientMarketplaceService(opts...)
+	r.BatchedGridWorkflow = NewClientBatchedGridWorkflowService(opts...)
 	return
 }

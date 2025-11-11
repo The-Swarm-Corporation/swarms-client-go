@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.11 (2025-11-11)
+
+Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
+
+### Features
+
+* **api:** manual updates to stainless config ([9d1cd99](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/9d1cd993f7f3f997933d8732c049aebedd13b9a0))
+
 ## 0.1.0-alpha.10 (2025-11-10)
 
 Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)

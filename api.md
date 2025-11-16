@@ -150,14 +150,6 @@ Methods:
 
 ## Marketplace
 
-Response Types:
-
-- <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientMarketplaceListAgentsResponse">ClientMarketplaceListAgentsResponse</a>
-
-Methods:
-
-- <code title="get /v1/marketplace/agents">client.Client.Marketplace.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientMarketplaceService.ListAgents">ListAgents</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, query <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientMarketplaceListAgentsParams">ClientMarketplaceListAgentsParams</a>) (<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientMarketplaceListAgentsResponse">ClientMarketplaceListAgentsResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
-
 ## BatchedGridWorkflow
 
 Response Types:

@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.13 (2025-11-16)
+
+Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
+
+### Features
+
+* **api:** api update ([e7c093f](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/e7c093f59237774c7706496fd5abab5003f1e7b7))
+
+
+### Chores
+
+* bump gjson version ([9f473be](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/9f473bec3deb967483020ad0a2f6918163801cce))
+
 ## 0.1.0-alpha.12 (2025-11-11)
 
 Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)

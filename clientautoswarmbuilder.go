@@ -104,7 +104,10 @@ type ClientAutoSwarmBuilderNewCompletionParams struct {
 	// The task for the swarm, if any.
 	Task param.Opt[string] `json:"task,omitzero"`
 	// The type of execution to perform.
-	ExecutionType []any `json:"execution_type,omitzero"`
+	//
+	// Any of "return-agents", "execute-swarm-router", "return-swarm-router-config",
+	// "return-agents-objects".
+	ExecutionType ClientAutoSwarmBuilderNewCompletionParamsExecutionType `json:"execution_type,omitzero"`
 	paramObj
 }
 
@@ -115,3 +118,13 @@ func (r ClientAutoSwarmBuilderNewCompletionParams) MarshalJSON() (data []byte, e
 func (r *ClientAutoSwarmBuilderNewCompletionParams) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
+
+// The type of execution to perform.
+type ClientAutoSwarmBuilderNewCompletionParamsExecutionType string
+
+const (
+	ClientAutoSwarmBuilderNewCompletionParamsExecutionTypeReturnAgents            ClientAutoSwarmBuilderNewCompletionParamsExecutionType = "return-agents"
+	ClientAutoSwarmBuilderNewCompletionParamsExecutionTypeExecuteSwarmRouter      ClientAutoSwarmBuilderNewCompletionParamsExecutionType = "execute-swarm-router"
+	ClientAutoSwarmBuilderNewCompletionParamsExecutionTypeReturnSwarmRouterConfig ClientAutoSwarmBuilderNewCompletionParamsExecutionType = "return-swarm-router-config"
+	ClientAutoSwarmBuilderNewCompletionParamsExecutionTypeReturnAgentsObjects     ClientAutoSwarmBuilderNewCompletionParamsExecutionType = "return-agents-objects"
+)

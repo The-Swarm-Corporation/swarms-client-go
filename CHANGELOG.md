@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.1.0-alpha.13 (2025-12-19)
+
+Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
+
+### Features
+
+* **api:** api update ([a9eaade](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/a9eaadebc7f4132836d4d99327d9aa5e72f23c90))
+* **api:** api update ([f033a54](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/f033a5430e3c79d895d1a5a8366180c06e00d3b8))
+* **api:** api update ([e7c093f](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/e7c093f59237774c7706496fd5abab5003f1e7b7))
+* **encoder:** support bracket encoding form-data object members ([6eec3e8](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/6eec3e8d1b7526f1b56e403b91e322296441f62a))
+
+
+### Bug Fixes
+
+* **mcp:** correct code tool API endpoint ([b89020a](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/b89020a24916c463d824e83b53d1c2d69d737a3a))
+* rename param to avoid collision ([de21d14](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/de21d14c1c4080be4d2b403b5c0c606d1664399c))
+* skip usage tests that don't work with Prism ([127a97d](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/127a97d15a75391b65bf0a73d0b95df230aeea66))
+
+
+### Chores
+
+* add float64 to valid types for RegisterFieldValidator ([4e10706](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/4e107069cbcd9975674d7f10628a18b3f3b35e5f))
+* bump gjson version ([9f473be](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/9f473bec3deb967483020ad0a2f6918163801cce))
+* elide duplicate aliases ([f0640dd](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/f0640dd02719216dd4838cc8e4eac8a5f970ff6d))
+* **internal:** codegen related update ([bb19fd6](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/bb19fd640beebb8fcb747f6a0403ef722127193a))
+
 ## 0.1.0-alpha.12 (2025-11-11)
 
 Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)

@@ -28,7 +28,7 @@ func TestClientAutoSwarmBuilderNewCompletionWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.Client.AutoSwarmBuilder.NewCompletion(context.TODO(), swarms.ClientAutoSwarmBuilderNewCompletionParams{
 		Description:   swarms.String("description"),
-		ExecutionType: []any{map[string]interface{}{}},
+		ExecutionType: swarms.ClientAutoSwarmBuilderNewCompletionParamsExecutionTypeReturnAgents,
 		MaxLoops:      swarms.Int(0),
 		MaxTokens:     swarms.Int(0),
 		ModelName:     swarms.String("model_name"),

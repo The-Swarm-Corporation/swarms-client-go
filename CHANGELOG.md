@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.14 (2026-01-06)
+
+Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
+
+### Documentation
+
+* prominently feature MCP server setup in root SDK readmes ([631025d](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/631025d63e0560c49d6cc86a2ed8ec89f6ef2304))
+
 ## 0.1.0-alpha.13 (2025-12-19)
 
 Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)

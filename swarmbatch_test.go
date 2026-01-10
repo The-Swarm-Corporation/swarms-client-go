@@ -38,7 +38,7 @@ func TestSwarmBatchRun(t *testing.T) {
 				},
 				MaxLoops:  swarms.Int(0),
 				MaxTokens: swarms.Int(0),
-				McpConfig: swarms.AgentSpecMcpConfigParam{
+				McpConfig: swarms.McpConnectionParam{
 					AuthorizationToken: swarms.String("authorization_token"),
 					Headers: map[string]string{
 						"foo": "string",
@@ -52,7 +52,7 @@ func TestSwarmBatchRun(t *testing.T) {
 					URL:       swarms.String("url"),
 				},
 				McpConfigs: swarms.AgentSpecMcpConfigsParam{
-					Connections: []swarms.AgentSpecMcpConfigsConnectionParam{{
+					Connections: []swarms.McpConnectionParam{{
 						AuthorizationToken: swarms.String("authorization_token"),
 						Headers: map[string]string{
 							"foo": "string",

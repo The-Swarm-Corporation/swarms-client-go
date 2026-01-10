@@ -41,6 +41,35 @@ func (r *ClientRateService) GetLimits(ctx context.Context, opts ...option.Reques
 	return
 }
 
+type RateLimitWindow struct {
+	// The number of requests made in this time window.
+	Count int64 `json:"count,required"`
+	// Whether the rate limit has been exceeded for this time window.
+	Exceeded bool `json:"exceeded,required"`
+	// The maximum number of requests allowed in this time window.
+	Limit int64 `json:"limit,required"`
+	// The number of requests remaining before hitting the limit.
+	Remaining int64 `json:"remaining,required"`
+	// ISO timestamp when the rate limit will reset.
+	ResetTime string `json:"reset_time,required"`
+	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
+	JSON struct {
+		Count       respjson.Field
+		Exceeded    respjson.Field
+		Limit       respjson.Field
+		Remaining   respjson.Field
+		ResetTime   respjson.Field
+		ExtraFields map[string]respjson.Field
+		raw         string
+	} `json:"-"`
+}
+
+// Returns the unmodified JSON received from the API
+func (r RateLimitWindow) RawJSON() string { return r.JSON.raw }
+func (r *RateLimitWindow) UnmarshalJSON(data []byte) error {
+	return apijson.UnmarshalRoot(data, r)
+}
+
 type ClientRateGetLimitsResponse struct {
 	// The configured rate limits based on the user's subscription tier.
 	Limits ClientRateGetLimitsResponseLimits `json:"limits,required"`
@@ -100,11 +129,11 @@ func (r *ClientRateGetLimitsResponseLimits) UnmarshalJSON(data []byte) error {
 // Current rate limit usage information for different time windows.
 type ClientRateGetLimitsResponseRateLimits struct {
 	// Rate limit information for the last day.
-	Day ClientRateGetLimitsResponseRateLimitsDay `json:"day,required"`
+	Day RateLimitWindow `json:"day,required"`
 	// Rate limit information for the last hour.
-	Hour ClientRateGetLimitsResponseRateLimitsHour `json:"hour,required"`
+	Hour RateLimitWindow `json:"hour,required"`
 	// Rate limit information for the last minute.
-	Minute ClientRateGetLimitsResponseRateLimitsMinute `json:"minute,required"`
+	Minute RateLimitWindow `json:"minute,required"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		Day         respjson.Field
@@ -118,95 +147,5 @@ type ClientRateGetLimitsResponseRateLimits struct {
 // Returns the unmodified JSON received from the API
 func (r ClientRateGetLimitsResponseRateLimits) RawJSON() string { return r.JSON.raw }
 func (r *ClientRateGetLimitsResponseRateLimits) UnmarshalJSON(data []byte) error {
-	return apijson.UnmarshalRoot(data, r)
-}
-
-// Rate limit information for the last day.
-type ClientRateGetLimitsResponseRateLimitsDay struct {
-	// The number of requests made in this time window.
-	Count int64 `json:"count,required"`
-	// Whether the rate limit has been exceeded for this time window.
-	Exceeded bool `json:"exceeded,required"`
-	// The maximum number of requests allowed in this time window.
-	Limit int64 `json:"limit,required"`
-	// The number of requests remaining before hitting the limit.
-	Remaining int64 `json:"remaining,required"`
-	// ISO timestamp when the rate limit will reset.
-	ResetTime string `json:"reset_time,required"`
-	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
-	JSON struct {
-		Count       respjson.Field
-		Exceeded    respjson.Field
-		Limit       respjson.Field
-		Remaining   respjson.Field
-		ResetTime   respjson.Field
-		ExtraFields map[string]respjson.Field
-		raw         string
-	} `json:"-"`
-}
-
-// Returns the unmodified JSON received from the API
-func (r ClientRateGetLimitsResponseRateLimitsDay) RawJSON() string { return r.JSON.raw }
-func (r *ClientRateGetLimitsResponseRateLimitsDay) UnmarshalJSON(data []byte) error {
-	return apijson.UnmarshalRoot(data, r)
-}
-
-// Rate limit information for the last hour.
-type ClientRateGetLimitsResponseRateLimitsHour struct {
-	// The number of requests made in this time window.
-	Count int64 `json:"count,required"`
-	// Whether the rate limit has been exceeded for this time window.
-	Exceeded bool `json:"exceeded,required"`
-	// The maximum number of requests allowed in this time window.
-	Limit int64 `json:"limit,required"`
-	// The number of requests remaining before hitting the limit.
-	Remaining int64 `json:"remaining,required"`
-	// ISO timestamp when the rate limit will reset.
-	ResetTime string `json:"reset_time,required"`
-	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
-	JSON struct {
-		Count       respjson.Field
-		Exceeded    respjson.Field
-		Limit       respjson.Field
-		Remaining   respjson.Field
-		ResetTime   respjson.Field
-		ExtraFields map[string]respjson.Field
-		raw         string
-	} `json:"-"`
-}
-
-// Returns the unmodified JSON received from the API
-func (r ClientRateGetLimitsResponseRateLimitsHour) RawJSON() string { return r.JSON.raw }
-func (r *ClientRateGetLimitsResponseRateLimitsHour) UnmarshalJSON(data []byte) error {
-	return apijson.UnmarshalRoot(data, r)
-}
-
-// Rate limit information for the last minute.
-type ClientRateGetLimitsResponseRateLimitsMinute struct {
-	// The number of requests made in this time window.
-	Count int64 `json:"count,required"`
-	// Whether the rate limit has been exceeded for this time window.
-	Exceeded bool `json:"exceeded,required"`
-	// The maximum number of requests allowed in this time window.
-	Limit int64 `json:"limit,required"`
-	// The number of requests remaining before hitting the limit.
-	Remaining int64 `json:"remaining,required"`
-	// ISO timestamp when the rate limit will reset.
-	ResetTime string `json:"reset_time,required"`
-	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
-	JSON struct {
-		Count       respjson.Field
-		Exceeded    respjson.Field
-		Limit       respjson.Field
-		Remaining   respjson.Field
-		ResetTime   respjson.Field
-		ExtraFields map[string]respjson.Field
-		raw         string
-	} `json:"-"`
-}
-
-// Returns the unmodified JSON received from the API
-func (r ClientRateGetLimitsResponseRateLimitsMinute) RawJSON() string { return r.JSON.raw }
-func (r *ClientRateGetLimitsResponseRateLimitsMinute) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }

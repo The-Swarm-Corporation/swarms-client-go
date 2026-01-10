@@ -20,6 +20,7 @@ type ClientService struct {
 	Tools               ClientToolService
 	Marketplace         ClientMarketplaceService
 	BatchedGridWorkflow ClientBatchedGridWorkflowService
+	GraphWorkflow       ClientGraphWorkflowService
 }
 
 // NewClientService generates a new service that applies the given options to each
@@ -34,5 +35,6 @@ func NewClientService(opts ...option.RequestOption) (r ClientService) {
 	r.Tools = NewClientToolService(opts...)
 	r.Marketplace = NewClientMarketplaceService(opts...)
 	r.BatchedGridWorkflow = NewClientBatchedGridWorkflowService(opts...)
+	r.GraphWorkflow = NewClientGraphWorkflowService(opts...)
 	return
 }

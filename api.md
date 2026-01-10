@@ -152,6 +152,14 @@ Methods:
 
 ## Marketplace
 
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientMarketplaceNewAgentResponse">ClientMarketplaceNewAgentResponse</a>
+
+Methods:
+
+- <code title="post /v1/marketplace/agents">client.Client.Marketplace.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientMarketplaceService.NewAgent">NewAgent</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, body <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientMarketplaceNewAgentParams">ClientMarketplaceNewAgentParams</a>) (<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientMarketplaceNewAgentResponse">ClientMarketplaceNewAgentResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+
 ## BatchedGridWorkflow
 
 Response Types:
@@ -161,3 +169,13 @@ Response Types:
 Methods:
 
 - <code title="post /v1/batched-grid-workflow/completions">client.Client.BatchedGridWorkflow.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientBatchedGridWorkflowService.CompleteWorkflow">CompleteWorkflow</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, body <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientBatchedGridWorkflowCompleteWorkflowParams">ClientBatchedGridWorkflowCompleteWorkflowParams</a>) (<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientBatchedGridWorkflowCompleteWorkflowResponse">ClientBatchedGridWorkflowCompleteWorkflowResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+
+## GraphWorkflow
+
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientGraphWorkflowExecuteWorkflowResponse">ClientGraphWorkflowExecuteWorkflowResponse</a>
+
+Methods:
+
+- <code title="post /v1/graph-workflow/completions">client.Client.GraphWorkflow.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientGraphWorkflowService.ExecuteWorkflow">ExecuteWorkflow</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, body <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientGraphWorkflowExecuteWorkflowParams">ClientGraphWorkflowExecuteWorkflowParams</a>) (<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientGraphWorkflowExecuteWorkflowResponse">ClientGraphWorkflowExecuteWorkflowResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>

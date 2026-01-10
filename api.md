@@ -24,6 +24,7 @@ Params Types:
 
 - <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#AgentCompletionParam">AgentCompletionParam</a>
 - <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#AgentSpecParam">AgentSpecParam</a>
+- <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#McpConnectionParam">McpConnectionParam</a>
 
 Response Types:
 
@@ -101,6 +102,7 @@ Methods:
 
 Response Types:
 
+- <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#RateLimitWindow">RateLimitWindow</a>
 - <a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go">swarms</a>.<a href="https://pkg.go.dev/github.com/The-Swarm-Corporation/swarms-client-go#ClientRateGetLimitsResponse">ClientRateGetLimitsResponse</a>
 
 Methods:

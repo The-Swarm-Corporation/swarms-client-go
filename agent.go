@@ -153,13 +153,13 @@ type AgentSpecParam struct {
 	// Additional arguments to pass to the LLM such as top_p, frequency_penalty,
 	// presence_penalty, etc.
 	LlmArgs map[string]any `json:"llm_args,omitzero"`
-	// The MCP connection to use for the agent.
-	McpConfig AgentSpecMcpConfigParam `json:"mcp_config,omitzero"`
 	// The MCP connections to use for the agent. This is a list of MCP connections.
 	// Includes multiple MCP connections.
 	McpConfigs AgentSpecMcpConfigsParam `json:"mcp_configs,omitzero"`
 	// A dictionary of tools that the agent can use to complete its task.
 	ToolsListDictionary []map[string]any `json:"tools_list_dictionary,omitzero"`
+	// The MCP connection to use for the agent.
+	McpConfig McpConnectionParam `json:"mcp_config,omitzero"`
 	paramObj
 }
 
@@ -171,41 +171,13 @@ func (r *AgentSpecParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-// The MCP connection to use for the agent.
-type AgentSpecMcpConfigParam struct {
-	// Authentication token for accessing the MCP server
-	AuthorizationToken param.Opt[string] `json:"authorization_token,omitzero"`
-	// Timeout for the MCP server
-	Timeout param.Opt[int64] `json:"timeout,omitzero"`
-	// The transport protocol to use for the MCP server
-	Transport param.Opt[string] `json:"transport,omitzero"`
-	// The type of connection, defaults to 'mcp'
-	Type param.Opt[string] `json:"type,omitzero"`
-	// The URL endpoint for the MCP server
-	URL param.Opt[string] `json:"url,omitzero"`
-	// Headers to send to the MCP server
-	Headers map[string]string `json:"headers,omitzero"`
-	// Dictionary containing configuration settings for MCP tools
-	ToolConfigurations map[string]any `json:"tool_configurations,omitzero"`
-	ExtraFields        map[string]any `json:"-"`
-	paramObj
-}
-
-func (r AgentSpecMcpConfigParam) MarshalJSON() (data []byte, err error) {
-	type shadow AgentSpecMcpConfigParam
-	return param.MarshalWithExtras(r, (*shadow)(&r), r.ExtraFields)
-}
-func (r *AgentSpecMcpConfigParam) UnmarshalJSON(data []byte) error {
-	return apijson.UnmarshalRoot(data, r)
-}
-
 // The MCP connections to use for the agent. This is a list of MCP connections.
 // Includes multiple MCP connections.
 //
 // The property Connections is required.
 type AgentSpecMcpConfigsParam struct {
 	// List of MCP connections
-	Connections []AgentSpecMcpConfigsConnectionParam `json:"connections,omitzero,required"`
+	Connections []McpConnectionParam `json:"connections,omitzero,required"`
 	paramObj
 }
 
@@ -217,7 +189,7 @@ func (r *AgentSpecMcpConfigsParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-type AgentSpecMcpConfigsConnectionParam struct {
+type McpConnectionParam struct {
 	// Authentication token for accessing the MCP server
 	AuthorizationToken param.Opt[string] `json:"authorization_token,omitzero"`
 	// Timeout for the MCP server
@@ -236,11 +208,11 @@ type AgentSpecMcpConfigsConnectionParam struct {
 	paramObj
 }
 
-func (r AgentSpecMcpConfigsConnectionParam) MarshalJSON() (data []byte, err error) {
-	type shadow AgentSpecMcpConfigsConnectionParam
+func (r McpConnectionParam) MarshalJSON() (data []byte, err error) {
+	type shadow McpConnectionParam
 	return param.MarshalWithExtras(r, (*shadow)(&r), r.ExtraFields)
 }
-func (r *AgentSpecMcpConfigsConnectionParam) UnmarshalJSON(data []byte) error {
+func (r *McpConnectionParam) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
 

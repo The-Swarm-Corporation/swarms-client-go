@@ -13,7 +13,7 @@ import (
 	"github.com/The-Swarm-Corporation/swarms-client-go/option"
 )
 
-func TestClientBatchedGridWorkflowCompleteWorkflowWithOptionalParams(t *testing.T) {
+func TestClientGraphWorkflowExecuteWorkflowWithOptionalParams(t *testing.T) {
 	t.Skip("Prism tests are disabled")
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
@@ -26,8 +26,8 @@ func TestClientBatchedGridWorkflowCompleteWorkflowWithOptionalParams(t *testing.
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Client.BatchedGridWorkflow.CompleteWorkflow(context.TODO(), swarms.ClientBatchedGridWorkflowCompleteWorkflowParams{
-		AgentCompletions: []swarms.AgentSpecParam{{
+	_, err := client.Client.GraphWorkflow.ExecuteWorkflow(context.TODO(), swarms.ClientGraphWorkflowExecuteWorkflowParams{
+		Agents: []swarms.AgentSpecParam{{
 			AgentName:                 swarms.String("agent_name"),
 			AutoGeneratePrompt:        swarms.Bool(true),
 			Description:               swarms.String("description"),
@@ -79,11 +79,24 @@ func TestClientBatchedGridWorkflowCompleteWorkflowWithOptionalParams(t *testing.
 				"foo": "bar",
 			}},
 		}},
+		AutoCompile: swarms.Bool(true),
 		Description: swarms.String("description"),
-		Imgs:        []string{"string"},
+		Edges: []swarms.ClientGraphWorkflowExecuteWorkflowParamsEdgeUnion{{
+			OfEdgeSpec: &swarms.ClientGraphWorkflowExecuteWorkflowParamsEdgeEdgeSpec{
+				Source: "source",
+				Target: "target",
+				Metadata: map[string]any{
+					"foo": "bar",
+				},
+			},
+		}},
+		EndPoints:   []string{"string"},
+		EntryPoints: []string{"string"},
+		Img:         swarms.String("img"),
 		MaxLoops:    swarms.Int(0),
 		Name:        swarms.String("name"),
-		Tasks:       []string{"string"},
+		Task:        swarms.String("task"),
+		Verbose:     swarms.Bool(true),
 	})
 	if err != nil {
 		var apierr *swarms.Error

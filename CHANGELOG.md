@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.16 (2026-01-17)
+
+Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
+
+### Bug Fixes
+
+* **docs:** add missing pointer prefix to api.md return types ([5752d93](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/5752d935574988ea1f18075c5c4fb3b16b3ef550))
+
+
+### Chores
+
+* **internal:** update `actions/checkout` version ([1849dce](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/1849dce15fc598c820649b255e181e31754afbbc))
+
 ## 0.1.0-alpha.15 (2026-01-10)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)

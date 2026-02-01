@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.17 (2026-01-30)
+
+Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
+
+### Features
+
+* **client:** add a convenient param.SetJSON helper ([be97147](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/be97147ce8f7611b291a81917f15bb374f2f1fac))
+
+
+### Bug Fixes
+
+* **docs:** fix mcp installation instructions for remote servers ([0736d1d](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/0736d1deaecdd86d0e446da0d1f9740bcf324979))
+* fix for namespace collisions with client and resource test methods ([827ea96](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/827ea963aa4ff1b5d7d1b563eee3e6fc6f70e9a9))
+
 ## 0.1.0-alpha.16 (2026-01-17)
 
 Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)

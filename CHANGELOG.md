@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.18 (2026-02-11)
+
+Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
+
+### Bug Fixes
+
+* **encoder:** correctly serialize NullStruct ([6e39959](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/6e39959314692656ac139d7659abc6eca8fe4893))
+
 ## 0.1.0-alpha.17 (2026-01-30)
 
 Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)

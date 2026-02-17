@@ -64,7 +64,6 @@ import (
 func main() {
 	client := swarms.NewClient(
 		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("SWARMS_API_KEY")
-		option.WithEnvironmentSandbox(), // defaults to option.WithEnvironmentProduction()
 	)
 	response, err := client.GetRoot(context.TODO())
 	if err != nil {

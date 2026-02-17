@@ -37,7 +37,7 @@ Or to pin the version:
 <!-- x-release-please-start-version -->
 
 ```sh
-go get -u 'github.com/The-Swarm-Corporation/swarms-client-go@v0.1.0-alpha.18'
+go get -u 'github.com/The-Swarm-Corporation/swarms-client-go@v0.1.0-alpha.19'
 ```
 
 <!-- x-release-please-end -->
@@ -64,7 +64,6 @@ import (
 func main() {
 	client := swarms.NewClient(
 		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("SWARMS_API_KEY")
-		option.WithEnvironmentSandbox(), // defaults to option.WithEnvironmentProduction()
 	)
 	response, err := client.GetRoot(context.TODO())
 	if err != nil {

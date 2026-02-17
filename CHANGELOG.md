@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.19 (2026-02-17)
+
+Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
+
+### Features
+
+* **api:** manual updates change base url ([ad7885f](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/ad7885fed09d0fef3e8cc23f7e8e6bcdf6a3f739))
+
 ## 0.1.0-alpha.18 (2026-02-11)
 
 Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)

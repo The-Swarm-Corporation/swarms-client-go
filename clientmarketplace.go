@@ -45,13 +45,13 @@ func (r *ClientMarketplaceService) NewAgent(ctx context.Context, body ClientMark
 // Response schema for marketplace prompts endpoint.
 type ClientMarketplaceNewAgentResponse struct {
 	// List of marketplace prompts
-	Prompts []ClientMarketplaceNewAgentResponsePrompt `json:"prompts,required"`
+	Prompts []ClientMarketplaceNewAgentResponsePrompt `json:"prompts" api:"required"`
 	// Total number of prompts available
-	TotalCount int64 `json:"total_count,required"`
+	TotalCount int64 `json:"total_count" api:"required"`
 	// The status of the marketplace prompts response.
-	Status string `json:"status,nullable"`
+	Status string `json:"status" api:"nullable"`
 	// The timestamp of the marketplace prompts response.
-	Timestamp string `json:"timestamp,nullable"`
+	Timestamp string `json:"timestamp" api:"nullable"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		Prompts     respjson.Field
@@ -72,27 +72,27 @@ func (r *ClientMarketplaceNewAgentResponse) UnmarshalJSON(data []byte) error {
 // Schema for marketplace prompts from the swarms_cloud_prompts table.
 type ClientMarketplaceNewAgentResponsePrompt struct {
 	// Unique identifier for the prompt
-	ID string `json:"id,required"`
+	ID string `json:"id" api:"required"`
 	// Timestamp when the prompt was created
-	CreatedAt string `json:"created_at,required"`
+	CreatedAt string `json:"created_at" api:"required"`
 	// ID of the user who created the prompt
-	UserID string `json:"user_id,required"`
+	UserID string `json:"user_id" api:"required"`
 	// Category name(s) - can be string or list
-	Category ClientMarketplaceNewAgentResponsePromptCategoryUnion `json:"category,nullable"`
+	Category ClientMarketplaceNewAgentResponsePromptCategoryUnion `json:"category" api:"nullable"`
 	// Description of the prompt
-	Description string `json:"description,nullable"`
+	Description string `json:"description" api:"nullable"`
 	// Associated links - can be list of dicts or strings
-	Links ClientMarketplaceNewAgentResponsePromptLinksUnion `json:"links,nullable"`
+	Links ClientMarketplaceNewAgentResponsePromptLinksUnion `json:"links" api:"nullable"`
 	// Name of the prompt
-	Name string `json:"name,nullable"`
+	Name string `json:"name" api:"nullable"`
 	// The actual prompt text
-	Prompt string `json:"prompt,nullable"`
+	Prompt string `json:"prompt" api:"nullable"`
 	// Status of the prompt
-	Status string `json:"status,nullable"`
+	Status string `json:"status" api:"nullable"`
 	// Tags associated with the prompt
-	Tags string `json:"tags,nullable"`
+	Tags string `json:"tags" api:"nullable"`
 	// Use cases - can be dict or list of dicts
-	UseCases ClientMarketplaceNewAgentResponsePromptUseCasesUnion `json:"use_cases,nullable"`
+	UseCases ClientMarketplaceNewAgentResponsePromptUseCasesUnion `json:"use_cases" api:"nullable"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		ID          respjson.Field

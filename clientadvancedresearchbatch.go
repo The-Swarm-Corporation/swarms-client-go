@@ -44,21 +44,21 @@ func (r *ClientAdvancedResearchBatchService) NewCompletion(ctx context.Context, 
 
 type ClientAdvancedResearchBatchNewCompletionResponse struct {
 	// The id of the advanced research session
-	ID string `json:"id,required"`
+	ID string `json:"id" api:"required"`
 	// The number of characters per source used for the advanced research session
-	CharactersPerSource int64 `json:"characters_per_source,required"`
+	CharactersPerSource int64 `json:"characters_per_source" api:"required"`
 	// The description of the advanced research session
-	Description string `json:"description,required"`
+	Description string `json:"description" api:"required"`
 	// The name of the advanced research session
-	Name string `json:"name,required"`
+	Name string `json:"name" api:"required"`
 	// The outputs of the advanced research session
-	Outputs any `json:"outputs,required"`
+	Outputs any `json:"outputs" api:"required"`
 	// The number of sources used for the advanced research session
-	Sources int64 `json:"sources,required"`
+	Sources int64 `json:"sources" api:"required"`
 	// The timestamp of the advanced research session
-	Timestamp string `json:"timestamp,required"`
+	Timestamp string `json:"timestamp" api:"required"`
 	// The usage of the advanced research session
-	Usage map[string]any `json:"usage,required"`
+	Usage map[string]any `json:"usage" api:"required"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		ID                  respjson.Field
@@ -82,7 +82,7 @@ func (r *ClientAdvancedResearchBatchNewCompletionResponse) UnmarshalJSON(data []
 
 type ClientAdvancedResearchBatchNewCompletionParams struct {
 	// The input schemas for the advanced research
-	InputSchemas []ClientAdvancedResearchBatchNewCompletionParamsInputSchema `json:"input_schemas,omitzero,required"`
+	InputSchemas []ClientAdvancedResearchBatchNewCompletionParamsInputSchema `json:"input_schemas,omitzero" api:"required"`
 	paramObj
 }
 
@@ -97,9 +97,9 @@ func (r *ClientAdvancedResearchBatchNewCompletionParams) UnmarshalJSON(data []by
 // The properties Config, Task are required.
 type ClientAdvancedResearchBatchNewCompletionParamsInputSchema struct {
 	// The task to be completed
-	Task param.Opt[string] `json:"task,omitzero,required"`
+	Task param.Opt[string] `json:"task,omitzero" api:"required"`
 	// The configuration for the advanced research
-	Config ClientAdvancedResearchBatchNewCompletionParamsInputSchemaConfig `json:"config,omitzero,required"`
+	Config ClientAdvancedResearchBatchNewCompletionParamsInputSchemaConfig `json:"config,omitzero" api:"required"`
 	// The image to be used for the advanced research
 	Img param.Opt[string] `json:"img,omitzero"`
 	paramObj

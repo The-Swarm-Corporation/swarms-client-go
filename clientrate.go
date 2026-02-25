@@ -43,15 +43,15 @@ func (r *ClientRateService) GetLimits(ctx context.Context, opts ...option.Reques
 
 type RateLimitWindow struct {
 	// The number of requests made in this time window.
-	Count int64 `json:"count,required"`
+	Count int64 `json:"count" api:"required"`
 	// Whether the rate limit has been exceeded for this time window.
-	Exceeded bool `json:"exceeded,required"`
+	Exceeded bool `json:"exceeded" api:"required"`
 	// The maximum number of requests allowed in this time window.
-	Limit int64 `json:"limit,required"`
+	Limit int64 `json:"limit" api:"required"`
 	// The number of requests remaining before hitting the limit.
-	Remaining int64 `json:"remaining,required"`
+	Remaining int64 `json:"remaining" api:"required"`
 	// ISO timestamp when the rate limit will reset.
-	ResetTime string `json:"reset_time,required"`
+	ResetTime string `json:"reset_time" api:"required"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		Count       respjson.Field
@@ -72,15 +72,15 @@ func (r *RateLimitWindow) UnmarshalJSON(data []byte) error {
 
 type ClientRateGetLimitsResponse struct {
 	// The configured rate limits based on the user's subscription tier.
-	Limits ClientRateGetLimitsResponseLimits `json:"limits,required"`
+	Limits ClientRateGetLimitsResponseLimits `json:"limits" api:"required"`
 	// Current rate limit usage information for different time windows.
-	RateLimits ClientRateGetLimitsResponseRateLimits `json:"rate_limits,required"`
+	RateLimits ClientRateGetLimitsResponseRateLimits `json:"rate_limits" api:"required"`
 	// The user's current subscription tier (free or premium).
-	Tier string `json:"tier,required"`
+	Tier string `json:"tier" api:"required"`
 	// ISO timestamp when the rate limits information was retrieved.
-	Timestamp string `json:"timestamp,required"`
+	Timestamp string `json:"timestamp" api:"required"`
 	// Indicates whether the rate limits request was successful.
-	Success bool `json:"success,nullable"`
+	Success bool `json:"success" api:"nullable"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		Limits      respjson.Field
@@ -102,13 +102,13 @@ func (r *ClientRateGetLimitsResponse) UnmarshalJSON(data []byte) error {
 // The configured rate limits based on the user's subscription tier.
 type ClientRateGetLimitsResponseLimits struct {
 	// The maximum number of requests allowed per day.
-	MaximumRequestsPerDay int64 `json:"maximum_requests_per_day,required"`
+	MaximumRequestsPerDay int64 `json:"maximum_requests_per_day" api:"required"`
 	// The maximum number of requests allowed per hour.
-	MaximumRequestsPerHour int64 `json:"maximum_requests_per_hour,required"`
+	MaximumRequestsPerHour int64 `json:"maximum_requests_per_hour" api:"required"`
 	// The maximum number of requests allowed per minute.
-	MaximumRequestsPerMinute int64 `json:"maximum_requests_per_minute,required"`
+	MaximumRequestsPerMinute int64 `json:"maximum_requests_per_minute" api:"required"`
 	// The maximum number of tokens allowed per agent.
-	TokensPerAgent int64 `json:"tokens_per_agent,required"`
+	TokensPerAgent int64 `json:"tokens_per_agent" api:"required"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		MaximumRequestsPerDay    respjson.Field
@@ -129,11 +129,11 @@ func (r *ClientRateGetLimitsResponseLimits) UnmarshalJSON(data []byte) error {
 // Current rate limit usage information for different time windows.
 type ClientRateGetLimitsResponseRateLimits struct {
 	// Rate limit information for the last day.
-	Day RateLimitWindow `json:"day,required"`
+	Day RateLimitWindow `json:"day" api:"required"`
 	// Rate limit information for the last hour.
-	Hour RateLimitWindow `json:"hour,required"`
+	Hour RateLimitWindow `json:"hour" api:"required"`
 	// Rate limit information for the last minute.
-	Minute RateLimitWindow `json:"minute,required"`
+	Minute RateLimitWindow `json:"minute" api:"required"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		Day         respjson.Field

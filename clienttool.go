@@ -43,9 +43,9 @@ func (r *ClientToolService) ListAvailable(ctx context.Context, opts ...option.Re
 
 type ClientToolListAvailableResponse struct {
 	// The status of the available tools.
-	Status string `json:"status,nullable"`
+	Status string `json:"status" api:"nullable"`
 	// The list of available tools.
-	Tools []string `json:"tools,nullable"`
+	Tools []string `json:"tools" api:"nullable"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		Status      respjson.Field

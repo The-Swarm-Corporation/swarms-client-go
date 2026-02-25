@@ -168,8 +168,8 @@ const (
 )
 
 type SwarmCheckAvailableResponse struct {
-	Success    bool     `json:"success,nullable"`
-	SwarmTypes []string `json:"swarm_types,nullable"`
+	Success    bool     `json:"success" api:"nullable"`
+	SwarmTypes []string `json:"swarm_types" api:"nullable"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		Success     respjson.Field
@@ -186,10 +186,10 @@ func (r *SwarmCheckAvailableResponse) UnmarshalJSON(data []byte) error {
 }
 
 type SwarmGetLogsResponse struct {
-	Count     int64  `json:"count,nullable"`
+	Count     int64  `json:"count" api:"nullable"`
 	Logs      any    `json:"logs"`
-	Status    string `json:"status,nullable"`
-	Timestamp string `json:"timestamp,nullable"`
+	Status    string `json:"status" api:"nullable"`
+	Timestamp string `json:"timestamp" api:"nullable"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		Count       respjson.Field
@@ -209,25 +209,25 @@ func (r *SwarmGetLogsResponse) UnmarshalJSON(data []byte) error {
 
 type SwarmRunResponse struct {
 	// The description of the swarm.
-	Description string `json:"description,required"`
+	Description string `json:"description" api:"required"`
 	// The execution time of the swarm.
-	ExecutionTime float64 `json:"execution_time,required"`
+	ExecutionTime float64 `json:"execution_time" api:"required"`
 	// The unique identifier for the swarm completion.
-	JobID string `json:"job_id,required"`
+	JobID string `json:"job_id" api:"required"`
 	// The number of agents in the swarm.
-	NumberOfAgents int64 `json:"number_of_agents,required"`
+	NumberOfAgents int64 `json:"number_of_agents" api:"required"`
 	// The output of the swarm.
-	Output any `json:"output,required"`
+	Output any `json:"output" api:"required"`
 	// The service tier of the swarm.
-	ServiceTier string `json:"service_tier,required"`
+	ServiceTier string `json:"service_tier" api:"required"`
 	// The status of the swarm completion.
-	Status string `json:"status,required"`
+	Status string `json:"status" api:"required"`
 	// The name of the swarm.
-	SwarmName string `json:"swarm_name,required"`
+	SwarmName string `json:"swarm_name" api:"required"`
 	// The type of the swarm.
-	SwarmType string `json:"swarm_type,required"`
+	SwarmType string `json:"swarm_type" api:"required"`
 	// The usage of the swarm.
-	Usage map[string]any `json:"usage,required"`
+	Usage map[string]any `json:"usage" api:"required"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		Description    respjson.Field

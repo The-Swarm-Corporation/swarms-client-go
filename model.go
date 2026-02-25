@@ -42,7 +42,7 @@ func (r *ModelService) ListAvailable(ctx context.Context, opts ...option.Request
 
 type ModelListAvailableResponse struct {
 	Models  any  `json:"models"`
-	Success bool `json:"success,nullable"`
+	Success bool `json:"success" api:"nullable"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		Models      respjson.Field

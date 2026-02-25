@@ -46,19 +46,19 @@ func (r *ClientGraphWorkflowService) ExecuteWorkflow(ctx context.Context, body C
 // Output schema for GraphWorkflow completion responses.
 type ClientGraphWorkflowExecuteWorkflowResponse struct {
 	// The job ID of the graph workflow.
-	JobID string `json:"job_id,required"`
+	JobID string `json:"job_id" api:"required"`
 	// The outputs of the graph workflow.
-	Outputs any `json:"outputs,required"`
+	Outputs any `json:"outputs" api:"required"`
 	// The status of the graph workflow.
-	Status string `json:"status,required"`
+	Status string `json:"status" api:"required"`
 	// The timestamp of the graph workflow execution.
-	Timestamp string `json:"timestamp,required"`
+	Timestamp string `json:"timestamp" api:"required"`
 	// The usage statistics of the workflow.
-	Usage ClientGraphWorkflowExecuteWorkflowResponseUsage `json:"usage,required"`
+	Usage ClientGraphWorkflowExecuteWorkflowResponseUsage `json:"usage" api:"required"`
 	// The description of the graph workflow.
-	Description string `json:"description,nullable"`
+	Description string `json:"description" api:"nullable"`
 	// The name of the graph workflow.
-	Name string `json:"name,nullable"`
+	Name string `json:"name" api:"nullable"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		JobID       respjson.Field
@@ -82,15 +82,15 @@ func (r *ClientGraphWorkflowExecuteWorkflowResponse) UnmarshalJSON(data []byte) 
 // The usage statistics of the workflow.
 type ClientGraphWorkflowExecuteWorkflowResponseUsage struct {
 	// The cost in credits for the agents.
-	CostPerAgent float64 `json:"cost_per_agent,required"`
+	CostPerAgent float64 `json:"cost_per_agent" api:"required"`
 	// The number of input tokens.
-	InputTokens int64 `json:"input_tokens,required"`
+	InputTokens int64 `json:"input_tokens" api:"required"`
 	// The number of output tokens.
-	OutputTokens int64 `json:"output_tokens,required"`
+	OutputTokens int64 `json:"output_tokens" api:"required"`
 	// The cost in credits for the tokens.
-	TokenCost float64 `json:"token_cost,required"`
+	TokenCost float64 `json:"token_cost" api:"required"`
 	// The total number of tokens.
-	TotalTokens int64 `json:"total_tokens,required"`
+	TotalTokens int64 `json:"total_tokens" api:"required"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		CostPerAgent respjson.Field
@@ -174,9 +174,9 @@ func (u *ClientGraphWorkflowExecuteWorkflowParamsEdgeUnion) asAny() any {
 // The properties Source, Target are required.
 type ClientGraphWorkflowExecuteWorkflowParamsEdgeEdgeSpec struct {
 	// The source node ID.
-	Source string `json:"source,required"`
+	Source string `json:"source" api:"required"`
 	// The target node ID.
-	Target string `json:"target,required"`
+	Target string `json:"target" api:"required"`
 	// Optional metadata for the edge.
 	Metadata map[string]any `json:"metadata,omitzero"`
 	paramObj

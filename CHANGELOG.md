@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.20 (2026-02-25)
+
+Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
+
+### Bug Fixes
+
+* allow canceling a request while it is waiting to retry ([2e0b28a](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/2e0b28a41171a8ecf0d0e974fdedd67f73091e04))
+
+
+### Chores
+
+* **internal:** move custom custom `json` tags to `api` ([99118c9](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/99118c9e487c8ec802b793b13c6c521eff852ca7))
+* **internal:** remove mock server code ([d58efc3](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/d58efc3a7375ea2160c1c5ead3fefdb85cfde0fb))
+* update mock server docs ([27bd619](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/27bd619cf7df9d1b21f766938c923f91a005d7cf))
+
 ## 0.1.0-alpha.19 (2026-02-17)
 
 Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)

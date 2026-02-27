@@ -44,19 +44,19 @@ func (r *ClientBatchedGridWorkflowService) CompleteWorkflow(ctx context.Context,
 
 type ClientBatchedGridWorkflowCompleteWorkflowResponse struct {
 	// The description of the batched grid workflow.
-	Description string `json:"description,required"`
+	Description string `json:"description" api:"required"`
 	// The job ID of the batched grid workflow.
-	JobID string `json:"job_id,required"`
+	JobID string `json:"job_id" api:"required"`
 	// The name of the batched grid workflow.
-	Name string `json:"name,required"`
+	Name string `json:"name" api:"required"`
 	// The outputs of the batched grid workflow.
-	Outputs any `json:"outputs,required"`
+	Outputs any `json:"outputs" api:"required"`
 	// The status of the batched grid workflow.
-	Status string `json:"status,required"`
+	Status string `json:"status" api:"required"`
 	// The timestamp of the batched grid workflow.
-	Timestamp string `json:"timestamp,required"`
+	Timestamp string `json:"timestamp" api:"required"`
 	// The usage of the batched grid workflow.
-	Usage ClientBatchedGridWorkflowCompleteWorkflowResponseUsage `json:"usage,required"`
+	Usage ClientBatchedGridWorkflowCompleteWorkflowResponseUsage `json:"usage" api:"required"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		Description respjson.Field
@@ -80,15 +80,15 @@ func (r *ClientBatchedGridWorkflowCompleteWorkflowResponse) UnmarshalJSON(data [
 // The usage of the batched grid workflow.
 type ClientBatchedGridWorkflowCompleteWorkflowResponseUsage struct {
 	// The cost in credits for the agents.
-	CostPerAgent float64 `json:"cost_per_agent,required"`
+	CostPerAgent float64 `json:"cost_per_agent" api:"required"`
 	// The number of input tokens.
-	InputTokens int64 `json:"input_tokens,required"`
+	InputTokens int64 `json:"input_tokens" api:"required"`
 	// The number of output tokens.
-	OutputTokens int64 `json:"output_tokens,required"`
+	OutputTokens int64 `json:"output_tokens" api:"required"`
 	// The cost in credits for the tokens.
-	TokenCost float64 `json:"token_cost,required"`
+	TokenCost float64 `json:"token_cost" api:"required"`
 	// The total number of tokens.
-	TotalTokens int64 `json:"total_tokens,required"`
+	TotalTokens int64 `json:"total_tokens" api:"required"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		CostPerAgent respjson.Field

@@ -60,17 +60,17 @@ func (r *ClientAutoSwarmBuilderService) ListExecutionTypes(ctx context.Context, 
 // usage (Optional[dict]): The usage statistics of the swarm execution.
 type ClientAutoSwarmBuilderNewCompletionResponse struct {
 	// Whether the swarm was built successfully.
-	Success bool `json:"success,required"`
+	Success bool `json:"success" api:"required"`
 	// The job ID of the swarm.
-	JobID string `json:"job_id,nullable"`
+	JobID string `json:"job_id" api:"nullable"`
 	// The outputs of the auto swarms builder.
-	Outputs map[string]any `json:"outputs,nullable"`
+	Outputs map[string]any `json:"outputs" api:"nullable"`
 	// The timestamp of the swarm execution.
-	Timestamp string `json:"timestamp,nullable"`
+	Timestamp string `json:"timestamp" api:"nullable"`
 	// The type of the swarm execution.
-	Type string `json:"type,nullable"`
+	Type string `json:"type" api:"nullable"`
 	// The usage of the swarm execution.
-	Usage map[string]any `json:"usage,nullable"`
+	Usage map[string]any `json:"usage" api:"nullable"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		Success     respjson.Field

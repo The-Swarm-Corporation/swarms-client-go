@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.22 (2026-03-06)
+
+Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
+
+### Chores
+
+* **internal:** codegen related update ([bac949c](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/bac949cc0fe3bb5f1dc2c97e30eaeae4e6763325))
+
 ## 0.1.0-alpha.21 (2026-03-03)
 
 Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)

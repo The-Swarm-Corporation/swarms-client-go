@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.23 (2026-03-07)
+
+Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([f0e3b42](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/f0e3b4295346ae4e77b8df532103e41f2f8c059f))
+
 ## 0.1.0-alpha.22 (2026-03-06)
 
 Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)

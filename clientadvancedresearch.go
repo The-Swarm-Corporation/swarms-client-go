@@ -41,7 +41,7 @@ func (r *ClientAdvancedResearchService) NewCompletion(ctx context.Context, body 
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/advanced-research/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
-	return
+	return res, err
 }
 
 type ClientAdvancedResearchNewCompletionResponse struct {

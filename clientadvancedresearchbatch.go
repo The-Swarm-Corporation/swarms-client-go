@@ -39,7 +39,7 @@ func (r *ClientAdvancedResearchBatchService) NewCompletion(ctx context.Context, 
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/advanced-research/batch/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
-	return
+	return res, err
 }
 
 type ClientAdvancedResearchBatchNewCompletionResponse struct {

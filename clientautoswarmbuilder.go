@@ -39,7 +39,7 @@ func (r *ClientAutoSwarmBuilderService) NewCompletion(ctx context.Context, body 
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/auto-swarm-builder/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
-	return
+	return res, err
 }
 
 // Retrieve all available execution types and return formats for the Auto Swarm
@@ -48,7 +48,7 @@ func (r *ClientAutoSwarmBuilderService) ListExecutionTypes(ctx context.Context, 
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/auto-swarm-builder/execution-types"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 // Schema for the Auto Swarm Builder API response.

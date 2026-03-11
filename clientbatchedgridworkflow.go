@@ -39,7 +39,7 @@ func (r *ClientBatchedGridWorkflowService) CompleteWorkflow(ctx context.Context,
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/batched-grid-workflow/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
-	return
+	return res, err
 }
 
 type ClientBatchedGridWorkflowCompleteWorkflowResponse struct {

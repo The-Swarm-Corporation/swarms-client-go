@@ -40,7 +40,7 @@ func (r *ClientGraphWorkflowService) ExecuteWorkflow(ctx context.Context, body C
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/graph-workflow/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
-	return
+	return res, err
 }
 
 // Output schema for GraphWorkflow completion responses.

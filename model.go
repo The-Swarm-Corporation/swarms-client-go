@@ -37,7 +37,7 @@ func (r *ModelService) ListAvailable(ctx context.Context, opts ...option.Request
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/models/available"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 type ModelListAvailableResponse struct {

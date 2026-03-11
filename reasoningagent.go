@@ -37,7 +37,7 @@ func (r *ReasoningAgentService) NewCompletion(ctx context.Context, body Reasonin
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/reasoning-agent/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
-	return
+	return res, err
 }
 
 // Get the types of reasoning agents available.
@@ -45,7 +45,7 @@ func (r *ReasoningAgentService) ListTypes(ctx context.Context, opts ...option.Re
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/reasoning-agent/types"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 type ReasoningAgentNewCompletionResponse map[string]any

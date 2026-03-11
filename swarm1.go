@@ -42,7 +42,7 @@ func (r *SwarmService) CheckAvailable(ctx context.Context, opts ...option.Reques
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/swarms/available"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 // Get all API request logs for all API keys associated with the user identified by
@@ -52,7 +52,7 @@ func (r *SwarmService) GetLogs(ctx context.Context, opts ...option.RequestOption
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/swarm/logs"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 // Run a swarm with the specified task. Supports streaming when stream=True.
@@ -60,7 +60,7 @@ func (r *SwarmService) Run(ctx context.Context, body SwarmRunParams, opts ...opt
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/swarm/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
-	return
+	return res, err
 }
 
 type SwarmSpecParam struct {

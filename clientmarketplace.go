@@ -39,7 +39,7 @@ func (r *ClientMarketplaceService) NewAgent(ctx context.Context, body ClientMark
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/marketplace/agents"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
-	return
+	return res, err
 }
 
 // Response schema for marketplace prompts endpoint.

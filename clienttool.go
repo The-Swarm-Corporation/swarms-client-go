@@ -38,7 +38,7 @@ func (r *ClientToolService) ListAvailable(ctx context.Context, opts ...option.Re
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/tools/available"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 type ClientToolListAvailableResponse struct {

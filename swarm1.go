@@ -4,7 +4,6 @@ package swarms
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 	"slices"
 
@@ -260,5 +259,5 @@ func (r SwarmRunParams) MarshalJSON() (data []byte, err error) {
 	return shimjson.Marshal(r.SwarmSpec)
 }
 func (r *SwarmRunParams) UnmarshalJSON(data []byte) error {
-	return json.Unmarshal(data, &r.SwarmSpec)
+	return apijson.UnmarshalRoot(data, r)
 }

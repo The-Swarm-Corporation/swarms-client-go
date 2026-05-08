@@ -1,5 +1,40 @@
 # Changelog
 
+## 0.1.0-alpha.24 (2026-05-08)
+
+Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
+
+### Features
+
+* **go:** add default http client with timeout ([71c3be9](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/71c3be93633ceb7012d63be22b42d09b33bd8a30))
+* **internal:** support comma format in multipart form encoding ([294d7e9](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/294d7e92bc0738ec602dd7b3868a00731cf626b3))
+* support setting headers via env ([f190a73](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/f190a7345cda55125738c53c107d7472b0f9df6c))
+
+
+### Bug Fixes
+
+* fix issue with unmarshaling in some cases ([32a89ef](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/32a89ef3d6e97158f73e5225ed61bc3c6794cdba))
+* **go:** avoid panic when http.DefaultTransport is wrapped ([5f73c83](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/5f73c839d2c146229a269749a613fb2df768b6d4))
+* prevent duplicate ? in query params ([f6cda13](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/f6cda138da542033253153961d0e076899aee7c3))
+
+
+### Chores
+
+* avoid embedding reflect.Type for dead code elimination ([d0dc5f2](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/d0dc5f27cbeaa4501176280f224352a84b5414e1))
+* **ci:** skip lint on metadata-only changes ([666d30a](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/666d30a6c11ee0d12d236aac9b81f0940d05984a))
+* **ci:** support opting out of skipping builds on metadata-only commits ([f9a89f2](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/f9a89f286757593229e862656b53d6f6737b4bb4))
+* **client:** fix multipart serialisation of Default() fields ([6ddbc17](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/6ddbc173640786c9a5bc85a451e5a08606562cde))
+* **internal:** minor cleanup ([8535f5e](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/8535f5e1f01d4f630bcb912037d4d461cc99a07c))
+* **internal:** more robust bootstrap script ([7277d15](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/7277d15fb11e72f0b4d21ff0525ffb25f2cf7813))
+* **internal:** support default value struct tag ([77226cc](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/77226ccb4655bfcdd12bef127d52104bc1cd54c7))
+* **internal:** tweak CI branches ([cdb6682](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/cdb6682d29cf698b172c507881d0685ad437fe79))
+* **internal:** update gitignore ([3d8cce1](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/3d8cce1f2d7fcd266e8f46260ac261af74029b7d))
+* **internal:** use explicit returns ([ece4184](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/ece418448ba4324080304a67fb4273162b7c5b72))
+* **internal:** use explicit returns in more places ([85e59bf](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/85e59bf3e848cf3b7f084f021b7cda3421c5d803))
+* redact api-key headers in debug logs ([21dee11](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/21dee117c7f9e9f59d790c5403c3c24295032ffd))
+* remove unnecessary error check for url parsing ([df283c3](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/df283c36711bc1339b20a7017b3641d8d2496cf6))
+* update docs for api:"required" ([830d088](https://github.com/The-Swarm-Corporation/swarms-client-go/commit/830d088d2edfe4b7371e3f962f03f3d04f10af80))
+
 ## 0.1.0-alpha.23 (2026-03-07)
 
 Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/The-Swarm-Corporation/swarms-client-go/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)

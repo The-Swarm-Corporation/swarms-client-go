@@ -4,7 +4,6 @@ package swarms
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 	"slices"
 
@@ -43,7 +42,7 @@ func (r *AgentService) List(ctx context.Context, opts ...option.RequestOption) (
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/agents/list"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 // Run an agent with the specified task. Supports streaming when stream=True.
@@ -51,7 +50,7 @@ func (r *AgentService) Run(ctx context.Context, body AgentRunParams, opts ...opt
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/agent/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
-	return
+	return res, err
 }
 
 type AgentCompletionParam struct {
@@ -265,5 +264,5 @@ func (r AgentRunParams) MarshalJSON() (data []byte, err error) {
 	return shimjson.Marshal(r.AgentCompletion)
 }
 func (r *AgentRunParams) UnmarshalJSON(data []byte) error {
-	return json.Unmarshal(data, &r.AgentCompletion)
+	return apijson.UnmarshalRoot(data, r)
 }

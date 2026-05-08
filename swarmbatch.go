@@ -4,10 +4,10 @@ package swarms
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 	"slices"
 
+	"github.com/The-Swarm-Corporation/swarms-client-go/internal/apijson"
 	shimjson "github.com/The-Swarm-Corporation/swarms-client-go/internal/encoding/json"
 	"github.com/The-Swarm-Corporation/swarms-client-go/internal/requestconfig"
 	"github.com/The-Swarm-Corporation/swarms-client-go/option"
@@ -37,7 +37,7 @@ func (r *SwarmBatchService) Run(ctx context.Context, body SwarmBatchRunParams, o
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/swarm/batch/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
-	return
+	return res, err
 }
 
 type SwarmBatchRunResponse map[string]any
@@ -51,5 +51,5 @@ func (r SwarmBatchRunParams) MarshalJSON() (data []byte, err error) {
 	return shimjson.Marshal(r.Body)
 }
 func (r *SwarmBatchRunParams) UnmarshalJSON(data []byte) error {
-	return json.Unmarshal(data, &r.Body)
+	return apijson.UnmarshalRoot(data, r)
 }

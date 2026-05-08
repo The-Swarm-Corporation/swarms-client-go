@@ -4,7 +4,6 @@ package swarms
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 	"slices"
 
@@ -39,7 +38,7 @@ func (r *AgentBatchService) Run(ctx context.Context, body AgentBatchRunParams, o
 	opts = slices.Concat(r.Options, opts)
 	path := "v1/agent/batch/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
-	return
+	return res, err
 }
 
 type AgentBatchRunResponse struct {
@@ -80,5 +79,5 @@ func (r AgentBatchRunParams) MarshalJSON() (data []byte, err error) {
 	return shimjson.Marshal(r.Body)
 }
 func (r *AgentBatchRunParams) UnmarshalJSON(data []byte) error {
-	return json.Unmarshal(data, &r.Body)
+	return apijson.UnmarshalRoot(data, r)
 }
